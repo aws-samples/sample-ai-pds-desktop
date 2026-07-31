@@ -1,6 +1,11 @@
-# AI-PLC Skill for Amazon Quick Desktop
+# AI-Driven Product Discovery and Strategy ( AI-PDS) - Skill for Amazon Quick Desktop showcasing AI driven product life cycle implementation
 
-## Part of the AI-PDS (AI Product Discovery & Strategy) Program
+AI-PDS (AI-Driven Product Discovery and Strategy) is a capabilities-first framework that helps non-technical business leaders — PMs, VPs of Product, CTOs exploring adjacencies — discover, prioritize, and prototype AI use cases before committing engineering resources. Multiple implemenations of the AI-PDS exists for AI driven Product Life Cycle e.g. Agentic IDE, Amazon Quick, Quick Desktop etc,along with prototype creation. 
+
+AI Product Discovery and Strategy (AI-PDS) is a structured approach where AI orchestrates every phase from customer discovery to market launch.
+
+Humans retain decision authority at each gate, ensuring alignment with business goals.
+
 
 ---
 
