@@ -16,6 +16,19 @@ Humans retain decision authority at each gate, ensuring alignment with business 
 
 ---
 
+## Supported Implementations
+
+This repo currently supports:
+
+| Implementation | Setup |
+|---|---|
+| **Amazon Quick Desktop** | Default. Install this folder as a skill — works as-is. |
+| **Claude Desktop** | See [`claude-desktop/README.md`](claude-desktop/README.md) for setup instructions. |
+
+More desktop assistants coming soon — stay tuned.
+
+---
+
 ## What This Skill Does
 
 Guides Product Managers and business leaders through the AI-PLC Discovery workflow:
