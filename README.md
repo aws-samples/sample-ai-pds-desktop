@@ -135,6 +135,12 @@ For facilitated workshops:
 - Related Blog: [Henry Schein One goes AI-native with AI-PDS](https://aws.amazon.com/blogs/industries/henry-schein-one-goes-ai-native-with-ai-product-discovery-and-strategy/)
 
 
----
+## Security
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+## License
+
+This library is licensed under the MIT-0 License. See the LICENSE file.
 
 *Version 1.0 | 2026-07-21*
