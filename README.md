@@ -131,7 +131,7 @@ For facilitated workshops:
 
 - Framework: AI-PDS (AI Product Discovery & Strategy)
 -  AI-PDS - Agentic IDE implementations of AI-PLC
-GitHub: [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
+   [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
 - Related Blog: [Henry Schein One goes AI-native with AI-PDS](https://aws.amazon.com/blogs/industries/henry-schein-one-goes-ai-native-with-ai-product-discovery-and-strategy/)
 
 
