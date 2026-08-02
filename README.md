@@ -1,4 +1,5 @@
-# AI-Driven Product Discovery and Strategy ( AI-PDS) - AI-driven product life cycle (AIPLC )implementation in AI Desktop Assistants 
+# AI-Driven Product Discovery and Strategy ( AI-PDS) 
+## AI-driven product life cycle (AIPLC )implementation in AI Desktop Assistants ## 
 
 AI-PDS (AI-Driven Product Discovery and Strategy) is a capabilities-first framework that helps non-technical business leaders — PMs, VPs of Product, CTOs exploring adjacencies — discover, prioritize, and prototype AI use cases before committing engineering resources. Multiple implemenations of the AI-PDS exists for AI driven Product Life Cycle e.g. Agentic IDE, Amazon Quick, Quick Desktop etc,along with prototype creation. 
 
