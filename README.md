@@ -43,12 +43,14 @@ More desktop assistants coming soon — stay tuned.
 
 ## Get Started with Quick Desktop
 
-1. Open **Agents & skills** from the left sidebar
-2. Click the **Skills** tab
-3. Click **+ Create** → **Import URL**
-4. Paste this repo URL: `https://github.com/aws-samples/sample-ai-pds-desktop`
-5. In any conversation, say: **"Start AI-PLC"**
-6. Follow the guided workflow
+1. Download or clone this repo
+2. Delete the `claude-desktop/` folder from the downloaded copy
+3. Open **Agents & skills** from the left sidebar
+4. Click the **Skills** tab
+5. Click **+ Create** → **Import from file**
+6. Select the folder (with claude-desktop removed)
+7. In any conversation, say: **"Start AI-PLC"**
+8. Follow the guided workflow
 
 For Claude Desktop setup, see [`claude-desktop/README.md`](claude-desktop/README.md).
 
