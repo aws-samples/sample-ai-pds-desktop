@@ -41,18 +41,39 @@ More desktop assistants coming soon — stay tuned.
 
 ---
 
-## Get Started with Quick Desktop
+## Install
 
-1. Download or clone this repo
-2. Delete the `claude-desktop/` folder from the downloaded copy
-3. Open **Agents & skills** from the left sidebar
-4. Click the **Skills** tab
-5. Click **+ Create** → **Import from file**
-6. Select the folder (with claude-desktop removed)
-7. In any conversation, say: **"Start AI-PLC"**
-8. Follow the guided workflow
+The fastest way to install is from a pre-built package on the
+[**Releases**](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest)
+page. Each release ships two ready-to-import zips — no cloning or file editing needed:
 
-For Claude Desktop setup, see [`claude-desktop/README.md`](claude-desktop/README.md).
+| Package | For |
+|---|---|
+| `ai-pds-quick-desktop.zip` | Amazon Quick Desktop |
+| `ai-pds-claude-desktop.zip` | Claude Desktop |
+
+### Quick Desktop (from zip)
+
+1. Download `ai-pds-quick-desktop.zip` from the [Releases](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) page and unzip it
+2. Open **Agents & skills** from the left sidebar → **Skills** tab
+3. Click **+ Create** → **Import from file**
+4. Select the unzipped folder
+5. In any conversation, say **"Start AI-PLC"** and follow the guided workflow
+
+### Claude Desktop (from zip)
+
+1. Download `ai-pds-claude-desktop.zip` from the [Releases](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) page and unzip it
+2. Load the unzipped folder as a skill via **Settings → Capabilities/Skills** (or zip and upload it, per your Claude Desktop version)
+3. Start a chat and say **"Start AI-PLC"**
+
+See [`claude-desktop/README.md`](claude-desktop/README.md) for MCP-server options and details on how the Claude Desktop version differs.
+
+### Install from source (manual)
+
+Prefer to work from a clone? You can still install directly from the repo:
+
+- **Quick Desktop:** clone the repo, delete the `claude-desktop/` folder, then import the folder as in the steps above.
+- **Claude Desktop:** clone the repo, copy `claude-desktop/SKILL.md` over the root `SKILL.md`, then load the root folder. See [`claude-desktop/README.md`](claude-desktop/README.md).
 
 ---
 
