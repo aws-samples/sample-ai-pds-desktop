@@ -1,0 +1,50 @@
+name: Release
+
+# Build ready-to-import skill packages and publish them as a GitHub Release
+# whenever a version tag (e.g. v1.1, v2.0.0) is pushed.
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write # required to create the release and upload assets
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Build Quick Desktop package
+        # Everything except the claude-desktop/ folder — matches the README's
+        # "download and delete the claude-desktop folder" instructions.
+        run: |
+          set -euo pipefail
+          pkg="ai-pds-quick-desktop"
+          mkdir -p "dist/$pkg"
+          cp SKILL.md README.md LICENSE "dist/$pkg/"
+          cp -R rules templates "dist/$pkg/"
+          (cd dist && zip -rq "$pkg.zip" "$pkg")
+
+      - name: Build Claude Desktop package
+        # Promote claude-desktop/SKILL.md to the root SKILL.md and ship the
+        # shared rules/ and templates/ — matches claude-desktop/README.md.
+        run: |
+          set -euo pipefail
+          pkg="ai-pds-claude-desktop"
+          mkdir -p "dist/$pkg"
+          cp claude-desktop/SKILL.md "dist/$pkg/SKILL.md"
+          cp claude-desktop/README.md "dist/$pkg/README.md"
+          cp LICENSE "dist/$pkg/"
+          cp -R rules templates "dist/$pkg/"
+          (cd dist && zip -rq "$pkg.zip" "$pkg")
+
+      - name: Publish release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/ai-pds-quick-desktop.zip
+            dist/ai-pds-claude-desktop.zip
