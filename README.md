@@ -10,6 +10,8 @@ Humans retain decision authority at each gate, ensuring alignment with business 
 This repo provides the Desktop Assistants implementation. For Agentic IDEs implementations please refer to 
 AI-PDS - Agentic IDE implementations of AI-PLC [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
 
+<img width="663" height="356" alt="image" src="https://github.com/user-attachments/assets/41d921db-1239-4450-a508-8260d9fefea4" />
+
 ## What This Skill Does
 
 Guides Product Managers and business leaders through the AI-PLC Discovery workflow:
