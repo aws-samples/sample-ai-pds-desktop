@@ -40,6 +40,39 @@ GitHub provides additional document on [forking a repository](https://help.githu
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 
+## Releasing
+
+Releases are automated by the [`.github/workflows/release.yml`](.github/workflows/release.yml)
+GitHub Actions workflow. Pushing a version tag builds two ready-to-import skill
+packages and publishes them as a GitHub Release with the zips attached:
+
+* `ai-pds-quick-desktop.zip` — default layout, with the `claude-desktop/` folder excluded
+* `ai-pds-claude-desktop.zip` — `claude-desktop/SKILL.md` promoted to the root `SKILL.md`
+
+To cut a new release:
+
+1. Make sure `main` is up to date and contains the changes you want to ship.
+2. Create a version tag (use a `v` prefix — the workflow triggers on `v*`):
+   ```bash
+   git tag v1.1
+   ```
+3. Push the tag:
+   ```bash
+   git push origin v1.1
+   ```
+4. Watch the run under the repository's **Actions** tab. When it succeeds, the
+   new release and its zips appear on the **Releases** page.
+
+Notes:
+* The workflow triggers on the tag itself, not on a branch, so tag a commit that already includes `.github/workflows/release.yml`.
+* To redo a release, delete the tag locally and remotely, delete the release entry in the GitHub UI, then re-tag and push:
+   ```bash
+   git push origin :refs/tags/v1.1   # delete remote tag
+   git tag -d v1.1                    # delete local tag
+   ```
+* Forks have GitHub Actions disabled by default — enable them under the fork's **Actions** tab before pushing a tag.
+
+
 ## Finding contributions to work on
 Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any 'help wanted' issues is a great place to start.
 
