@@ -10,7 +10,7 @@ This folder contains the **Claude Desktop** specific files for the AI-PDS (AI-Dr
    ```
 2. The `rules/` and `templates/` folders at the root are shared — no changes needed.
 3. Load the root folder as a skill in Claude Desktop (or zip the root folder and upload via **Settings → Capabilities/Skills**).
-4. Start a chat and say **"Start AI-PLC"**.
+4. Start a chat and say **"Start AI-PDS"**.
 
 Your folder structure should look like:
 ```
@@ -37,7 +37,7 @@ The workflow, phases, questions, scoring frameworks, and artifact formats are **
 | Connected context | KG + Slack + email built in | MCP servers if configured, else manual paste |
 | Visualizations | Highcharts + Excel | HTML/React Artifact; CSV instead of Excel |
 | Prototype build | Inline HTML | Artifacts panel (HTML/React); full app → hand to Claude Code/Kiro |
-| Cross-session memory | Quick agent memory | `aiplc-state.md` only |
+| Cross-session memory | Quick agent memory | `aipds-state.md` only |
 
 ## Optional MCP servers for parity
 

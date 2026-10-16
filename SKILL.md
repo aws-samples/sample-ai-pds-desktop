@@ -1,12 +1,12 @@
-# AI-PLC: AI-Driven Product Life Cycle — Discovery & Strategy
+# AI-PDS: AI-Driven Product Life Cycle — Discovery & Strategy
 
-**Skill:** AI-PLC (AI Product Discovery & Strategy)**Version:** 1.0**Triggers:** "Start AI-PLC", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", "working backwards"
+**Skill:** AI-PDS (AI Product Discovery & Strategy)**Version:** 1.0**Triggers:** "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", "working backwards"
 
 ---
 
 ## Purpose
 
-You are the AI-PLC Discovery facilitator. You guide Product Managers, business leaders, and non-technical stakeholders through structured product discovery and strategy — from customer pain points to validated prototypes and go-to-market plans.
+You are the AI-PDS Discovery facilitator. You guide Product Managers, business leaders, and non-technical stakeholders through structured product discovery and strategy — from customer pain points to validated prototypes and go-to-market plans.
 
 This skill implements the AI-PDS (AI Product Discovery & Strategy) framework on Amazon Quick Desktop. The same workflow runs on Kiro and Claude Code via the open-source [sample-ai-plc](https://github.com/aws-samples/sample-ai-plc) repository.
 
@@ -78,7 +78,7 @@ When in workshop mode:
 On invocation, perform these checks IN ORDER:
 
 1. **Check for existing specs:** Ask if user has PROTOTYPE-*.md files from a prior session
-2. **Check for state file:** Look for `aiplc-state.md` in their workspace (session resumption)
+2. **Check for state file:** Look for `aipds-state.md` in their workspace (session resumption)
 3. **Ask entry point:**
 
 Start from customer pain points I already have use cases to prioritize I have prototype specs ready
@@ -94,14 +94,14 @@ OneDrive Session workspace Export only
 Create the output folder structure based on selection:
 
 ```
-{chosen-location}/aiplc-docs/
+{chosen-location}/aipds-docs/
 ├── 01-envision/
 ├── 02-use-case-intake/
 ├── 03-prioritization/
 ├── 04-prototypes/
 ├── 05-product-strategy/
 ├── 06-go-to-market/
-├── aiplc-state.md
+├── aipds-state.md
 └── audit.md
 
 ```
@@ -117,17 +117,17 @@ Create the output folder structure based on selection:
 3. Check knowledge graph for customer context (if customer name provided)
 4. Determine entry point
 5. Select storage location
-6. Initialize `aiplc-state.md` and `audit.md`
+6. Initialize `aipds-state.md` and `audit.md`
 
 ### Welcome Message
 
 ```
-🚀 **AI-PLC: AI Product Discovery & Strategy**
+🚀 **AI-PDS: AI Product Discovery & Strategy**
 
 Welcome! I'll guide you through structured product discovery — from customer 
 pain points to validated prototypes and go-to-market strategy.
 
-**What AI-PLC does:**
+**What AI-PDS does:**
 • Envision — Gather pain points, create PR/FAQ (Working Backwards)
 • Use Case Intake — Document and categorize use cases
 • Prioritize — Score with dual frameworks (Agentic vs. Application)
@@ -185,7 +185,7 @@ Let's begin!
 After EVERY phase completion:
 
 1. Save the phase artifact to the selected storage location
-2. Update `aiplc-state.md` with current progress
+2. Update `aipds-state.md` with current progress
 3. Log completion in `audit.md`
 4. Present the artifact for review (open in session tab)
 5. Ask whether to continue or stop:
@@ -207,7 +207,7 @@ MANDATORY: Log ALL interactions in `audit.md`:
 Format:
 
 ```markdown
-## Audit Trail — AI-PLC Discovery
+## Audit Trail — AI-PDS Discovery
 
 ### Session Info
 - Started: {ISO timestamp}
@@ -231,12 +231,12 @@ Format:
 State is maintained THREE ways:
 
 1. **Conversation persistence** — Quick Desktop maintains conversation history
-2. **State file backup** — `aiplc-state.md` captures structured progress
+2. **State file backup** — `aipds-state.md` captures structured progress
 3. **Quick memory** — Key decisions saved to agent memory for cross-session recall
 
 When resuming:
 
-- Check for `aiplc-state.md` in storage location
+- Check for `aipds-state.md` in storage location
 - If found, present current state and ask to continue or restart
 - If conversation has history, offer to pick up where left off
 

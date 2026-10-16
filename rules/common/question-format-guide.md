@@ -1,8 +1,8 @@
-# Question Format Guide — AI-PLC on Quick Desktop
+# Question Format Guide — AI-PDS on Quick Desktop
 
 ## Overview
 
-AI-PLC on Quick Desktop uses TWO interaction formats:
+AI-PDS on Quick Desktop uses TWO interaction formats:
 1. **Decision cards** — for structured choices (multiple choice, yes/no, selection)
 2. **Conversational** — for free-form input (descriptions, URLs, names, feedback)
 

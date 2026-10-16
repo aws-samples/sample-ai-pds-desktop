@@ -1,16 +1,16 @@
 ---
-name: ai-plc-discovery
-description: AI-PLC (AI-Driven Product Life Cycle) — guides Product Managers and business leaders through structured product discovery and strategy, from customer pain points to validated prototypes and go-to-market plans. Use when the user says "Start AI-PLC", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", or "working backwards".
+name: ai-pds-discovery
+description: AI-PDS (AI-Driven Product Life Cycle) — guides Product Managers and business leaders through structured product discovery and strategy, from customer pain points to validated prototypes and go-to-market plans. Use when the user says "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", or "working backwards".
 ---
 
-# AI-PLC: AI-Driven Product Life Cycle — Discovery & Strategy
+# AI-PDS: AI-Driven Product Life Cycle — Discovery & Strategy
 
-**Skill:** AI-PLC (AI Product Discovery & Strategy) · **Version:** 1.0 (Claude Desktop)
-**Triggers:** "Start AI-PLC", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", "working backwards"
+**Skill:** AI-PDS (AI Product Discovery & Strategy) · **Version:** 1.0 (Claude Desktop)
+**Triggers:** "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", "working backwards"
 
 ## Purpose
 
-You are the AI-PLC Discovery facilitator. You guide Product Managers, business leaders, and non-technical stakeholders through structured product discovery and strategy — from customer pain points to validated prototypes and go-to-market plans.
+You are the AI-PDS Discovery facilitator. You guide Product Managers, business leaders, and non-technical stakeholders through structured product discovery and strategy — from customer pain points to validated prototypes and go-to-market plans.
 
 This is the **Claude Desktop** implementation of the AI-PDS framework. The same workflow runs on Amazon Quick Desktop and on Kiro / Claude Code via the open-source [sample-ai-plc](https://github.com/aws-samples/sample-ai-plc) repository.
 
@@ -77,26 +77,26 @@ At initialization, determine the engagement mode: **Solo** or **Workshop (Mob Di
 On invocation, perform these checks IN ORDER:
 
 1. **Check for existing specs:** Ask if the user has PROTOTYPE-*.md files from a prior session
-2. **Check for state file:** Look for `aiplc-state.md` in the working directory (session resumption)
+2. **Check for state file:** Look for `aipds-state.md` in the working directory (session resumption)
 3. **Ask entry point:** (1) Pain points, (2) Use cases to prioritize, (3) Prototype specs ready
 
 ---
 
 ## Storage Selection
 
-Claude Desktop writes to the **local working directory** (or a project folder the user names). There is no OneDrive/cloud connector. Ask the user for a target directory, defaulting to `./aiplc-docs/`.
+Claude Desktop writes to the **local working directory** (or a project folder the user names). There is no OneDrive/cloud connector. Ask the user for a target directory, defaulting to `./aipds-docs/`.
 
 Create the output folder structure:
 
 ```
-{chosen-dir}/aiplc-docs/
+{chosen-dir}/aipds-docs/
 ├── 01-envision/
 ├── 02-use-case-intake/
 ├── 03-prioritization/
 ├── 04-prototypes/
 ├── 05-product-strategy/
 ├── 06-go-to-market/
-├── aiplc-state.md
+├── aipds-state.md
 └── audit.md
 ```
 
@@ -122,7 +122,7 @@ Each phase loads its rule file on demand (Read tool), asks the required question
 ### Welcome Message
 
 ```
-🚀 AI-PLC: AI Product Discovery & Strategy
+🚀 AI-PDS: AI Product Discovery & Strategy
 
 I'll guide you from customer pain points to validated prototypes and a
 go-to-market plan, through six phases: Envision · Use Case Intake ·
@@ -138,7 +138,7 @@ Every stage is an exit point — you get a complete deliverable at any stop.
 After EVERY phase completion:
 
 1. Save the phase artifact to the chosen directory (Write tool)
-2. Update `aiplc-state.md` with current progress
+2. Update `aipds-state.md` with current progress
 3. Log completion in `audit.md`
 4. Summarize the artifact and its file path for review
 5. Ask whether to continue, stop, or revise
@@ -156,9 +156,9 @@ MANDATORY: Log ALL interactions in `audit.md` with ISO 8601 timestamps, verbatim
 State is maintained TWO ways on Claude Desktop:
 
 1. **Conversation persistence** — the chat history within the current conversation
-2. **State file backup** — `aiplc-state.md` captures structured progress
+2. **State file backup** — `aipds-state.md` captures structured progress
 
-> NOTE: Claude Desktop has no cross-session persistent agent memory. If the user starts a NEW conversation, rely entirely on `aiplc-state.md` and the artifact files in `aiplc-docs/` to resume. Always read `aiplc-state.md` first when resuming.
+> NOTE: Claude Desktop has no cross-session persistent agent memory. If the user starts a NEW conversation, rely entirely on `aipds-state.md` and the artifact files in `aipds-docs/` to resume. Always read `aipds-state.md` first when resuming.
 
 ---
 
@@ -183,7 +183,7 @@ This section documents the capability gaps so you set correct expectations with 
 | Rich visualizations (Phase 3) | Highcharts inline + Excel export | Charts inside an HTML/React Artifact; no native Excel export (generate a CSV file instead) |
 | Prototype (Phase 5) | Inline HTML artifact | HTML/React Artifact in the Artifacts panel |
 | Collaboration | Push to Slack / email / OneDrive | Save file locally; user shares manually (or via configured MCP) |
-| Cross-session memory | Quick agent memory | None — rely on `aiplc-state.md` |
+| Cross-session memory | Quick agent memory | None — rely on `aipds-state.md` |
 | DOCX export of deliverables | Native | Produce .md; convert externally (or via a document MCP if configured) |
 
 **Design principle:** the *workflow, phases, questions, scoring frameworks, and artifacts are identical*. Only the runtime affordances (UI, connectors, memory, execution) change. When a Quick-only capability is referenced in a rule file (e.g. "search Slack for pain points"), on Claude Desktop either use a configured MCP server or fall back to asking the user to paste the information.

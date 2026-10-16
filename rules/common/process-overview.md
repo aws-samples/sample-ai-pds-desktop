@@ -1,8 +1,8 @@
-# Process Overview — AI-PLC on Quick Desktop
+# Process Overview — AI-PDS on Quick Desktop
 
-## The AI-PLC Capability Model
+## The AI-PDS Capability Model
 
-AI-PLC implements 6 capabilities for product discovery and strategy. Each capability produces a standalone deliverable — you can stop at any point.
+AI-PDS implements 6 capabilities for product discovery and strategy. Each capability produces a standalone deliverable — you can stop at any point.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -62,7 +62,7 @@ These capabilities are unique to the Quick Desktop implementation:
 All artifacts are saved as split files (no monolithic discovery document):
 
 ```
-aiplc-docs/
+aipds-docs/
 ├── 01-envision/
 │   ├── pain-points.md
 │   └── prfaq.md
@@ -79,7 +79,7 @@ aiplc-docs/
 │   └── strategy.md
 ├── 06-go-to-market/
 │   └── gtm-plan.md
-├── aiplc-state.md
+├── aipds-state.md
 └── audit.md
 ```
 

@@ -125,7 +125,7 @@ Once PR/FAQ is approved:
 
 1. Save `01-envision/pain-points.md` with the confirmed pain point list
 2. Save `01-envision/prfaq.md` with the approved PR/FAQ
-3. Update `aiplc-state.md`
+3. Update `aipds-state.md`
 4. Log in `audit.md`
 
 ---

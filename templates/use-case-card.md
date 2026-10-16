@@ -64,4 +64,4 @@
 
 ---
 
-*Documented: {timestamp} | AI-PLC Discovery*
+*Documented: {timestamp} | AI-PDS Discovery*

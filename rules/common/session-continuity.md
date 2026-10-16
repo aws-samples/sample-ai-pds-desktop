@@ -1,13 +1,13 @@
-# Session Continuity — AI-PLC on Quick Desktop
+# Session Continuity — AI-PDS on Quick Desktop
 
 ## Three Layers of Continuity
 
-AI-PLC maintains state across sessions through three mechanisms:
+AI-PDS maintains state across sessions through three mechanisms:
 
 ### 1. Conversation Persistence (Primary)
 Quick Desktop maintains the full conversation history. On return, the AI has complete context of everything discussed.
 
-### 2. State File Backup (`aiplc-state.md`)
+### 2. State File Backup (`aipds-state.md`)
 A structured state file is saved after every phase transition. This serves as:
 - A backup if conversation is lost
 - A quick-reference for where the user left off
@@ -21,7 +21,7 @@ Key decisions (customer name, entry point, storage location) are saved to Quick'
 ## State File Format
 
 ```markdown
-# AI-PLC Session State
+# AI-PDS Session State
 
 ## Session Info
 - **Project:** {customer/project name}
@@ -62,10 +62,10 @@ Key decisions (customer name, entry point, storage location) are saved to Quick'
 
 ## Resumption Protocol
 
-When a user returns to an AI-PLC session:
+When a user returns to an AI-PDS session:
 
 ### Step 1: Detect State
-Check for `aiplc-state.md` in the user's storage location. Also check conversation history.
+Check for `aipds-state.md` in the user's storage location. Also check conversation history.
 
 ### Step 2: Present Status
 ```
@@ -93,7 +93,7 @@ Welcome back! Here's where we left off:
 
 ## State Updates
 
-Update `aiplc-state.md` at these trigger points:
+Update `aipds-state.md` at these trigger points:
 - Phase starts (status → 🔄 In Progress)
 - Phase completes (status → ✅ Complete, artifact path recorded)
 - Key decision made (added to Key Decisions section)

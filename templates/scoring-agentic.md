@@ -138,4 +138,4 @@ Weighted Score = (Automation × 0.25) + (Decision × 0.20) + (Tools × 0.15)
 
 ---
 
-*AI-PLC Agentic Scoring Framework v1.0*
+*AI-PDS Agentic Scoring Framework v1.0*

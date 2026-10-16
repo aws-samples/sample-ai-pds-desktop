@@ -1,5 +1,5 @@
 # AI-Driven Product Discovery and Strategy ( AI-PDS) 
-## AI-driven product life cycle (AIPLC )implementation in AI Desktop Assistants ## 
+## AI-driven product life cycle (AIPDS )implementation in AI Desktop Assistants ## 
 
 AI-PDS (AI-Driven Product Discovery and Strategy) is a capabilities-first framework that helps non-technical business leaders — PMs, VPs of Product, CTOs exploring adjacencies — discover, prioritize, and prototype AI use cases before committing engineering resources. Multiple implemenations of the AI-PDS exists for AI driven Product Life Cycle e.g. Agentic IDE, Amazon Quick, Quick Desktop etc,along with prototype creation. 
 
@@ -8,13 +8,13 @@ AI Product Discovery and Strategy (AI-PDS) is a structured approach where AI orc
 Humans retain decision authority at each gate, ensuring alignment with business goals.
 
 This repo provides the Desktop Assistants implementation. For Agentic IDEs implementations please refer to 
-AI-PDS - Agentic IDE implementations of AI-PLC [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
+AI-PDS - Agentic IDE implementations of AI-PDS [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
 
 <img width="663" height="356" alt="image" src="https://github.com/user-attachments/assets/41d921db-1239-4450-a508-8260d9fefea4" />
 
 ## What This Skill Does
 
-Guides Product Managers and business leaders through the AI-PLC Discovery workflow:
+Guides Product Managers and business leaders through the AI-PDS Discovery workflow:
 
 | Capability | What happens | You get |
 |---|---|---|
@@ -60,13 +60,13 @@ page. Each release ships two ready-to-import zips — no cloning or file editing
 2. Open **Agents & skills** from the left sidebar → **Skills** tab
 3. Click **+ Create** → **Import from file**
 4. Select the unzipped folder
-5. In any conversation, say **"Start AI-PLC"** and follow the guided workflow
+5. In any conversation, say **"Start AI-PDS"** and follow the guided workflow
 
 ### Claude Desktop (from zip)
 
 1. Download `ai-pds-claude-desktop.zip` from the [Releases](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) page and unzip it
 2. Load the unzipped folder as a skill via **Settings → Capabilities/Skills** (or zip and upload it, per your Claude Desktop version)
-3. Start a chat and say **"Start AI-PLC"**
+3. Start a chat and say **"Start AI-PDS"**
 
 See [`claude-desktop/README.md`](claude-desktop/README.md) for MCP-server options and details on how the Claude Desktop version differs.
 
@@ -82,7 +82,7 @@ Prefer to work from a clone? You can still install directly from the repo:
 ## File Structure
 
 ```
-ai-plc-skill/
+ai-pds-skill/
 ├── SKILL.md                              ← Orchestrator (main entry point)
 ├── README.md                             ← This file
 ├── rules/
@@ -134,7 +134,7 @@ For facilitated workshops:
 ## Source
 
 - Framework: AI-PDS (AI Product Discovery & Strategy)
--  AI-PDS - Agentic IDE implementations of AI-PLC
+-  AI-PDS - Agentic IDE implementations of AI-PDS
    [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
 - Related Blog: [Henry Schein One goes AI-native with AI-PDS](https://aws.amazon.com/blogs/industries/henry-schein-one-goes-ai-native-with-ai-product-discovery-and-strategy/)
 
