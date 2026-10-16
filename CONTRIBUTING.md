@@ -43,32 +43,39 @@ GitHub provides additional document on [forking a repository](https://help.githu
 ## Releasing
 
 Releases are automated by the [`.github/workflows/release.yml`](.github/workflows/release.yml)
-GitHub Actions workflow. Pushing a version tag builds two ready-to-import skill
-packages and publishes them as a GitHub Release with the zips attached:
+GitHub Actions workflow. Pushing a version tag runs [`scripts/build-skill.sh`](scripts/build-skill.sh)
+and publishes a GitHub Release with two ready-to-import zips attached:
 
-* `ai-pds-quick-desktop.zip` — default layout, with the `claude-desktop/` folder excluded
-* `ai-pds-claude-desktop.zip` — `claude-desktop/SKILL.md` promoted to the root `SKILL.md`
+* `ai-pds-discovery-quick.zip` — Quick Desktop skill (root `SKILL.md` + `rules/` + `templates/`)
+* `ai-pds-discovery-claude.zip` — Claude Desktop skill (`claude-desktop/SKILL.md` + `rules/` + `templates/`)
+
+Each zip contains a single `ai-pds-discovery/` folder — the same output as running the build script locally.
 
 To cut a new release:
 
 1. Make sure `main` is up to date and contains the changes you want to ship.
-2. Create a version tag (use a `v` prefix — the workflow triggers on `v*`):
+2. Check the build locally — both runtimes should report 19 files:
    ```bash
-   git tag v1.1
+   ./scripts/build-skill.sh
    ```
-3. Push the tag:
+3. Add an entry for the version to [`CHANGELOG.md`](CHANGELOG.md).
+4. Create a version tag (use a `v` prefix — the workflow triggers on `v*`):
    ```bash
-   git push origin v1.1
+   git tag v1.1.0
    ```
-4. Watch the run under the repository's **Actions** tab. When it succeeds, the
+5. Push the tag:
+   ```bash
+   git push origin v1.1.0
+   ```
+6. Watch the run under the repository's **Actions** tab. When it succeeds, the
    new release and its zips appear on the **Releases** page.
 
 Notes:
-* The workflow triggers on the tag itself, not on a branch, so tag a commit that already includes `.github/workflows/release.yml`.
+* The workflow triggers on the tag itself, not on a branch, so tag a commit that already includes `.github/workflows/release.yml` and `scripts/build-skill.sh`.
 * To redo a release, delete the tag locally and remotely, delete the release entry in the GitHub UI, then re-tag and push:
    ```bash
-   git push origin :refs/tags/v1.1   # delete remote tag
-   git tag -d v1.1                    # delete local tag
+   git push origin :refs/tags/v1.1.0   # delete remote tag
+   git tag -d v1.1.0                    # delete local tag
    ```
 * Forks have GitHub Actions disabled by default — enable them under the fork's **Actions** tab before pushing a tag.
 
