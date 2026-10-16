@@ -146,16 +146,16 @@ For the top 5, present:
 
 ---
 
-## Step 5: Select Top 3
+## Step 5: Select Use Cases to Prototype
 
-<decision question="Based on the scoring, here are my recommended top 3 for prototyping. Do you agree?">
-<option description="These 3 are right — proceed to prototype specs">Agree with top 3</option>
-<option description="I want to swap one or more selections">Adjust selection</option>
-<option description="I want more than 3 prototypes">Select more than 3</option>
-<option description="I only want 1 or 2 prototypes">Select fewer</option>
-</decision>
+This is the ONLY place the number of prototypes is decided. The Prototype phase builds one spec per use case selected here and never re-asks.
 
-If adjusting, ask which to swap and why (log rationale in audit).
+Present the COMPLETE ranked list — every scored use case, with its rank, type, and score — then ask conversationally (not as a decision card; a subset of N items does not fit the 5-option limit):
+
+"Which of these would you like to prototype? Reply with the numbers, or say 'all'."
+
+- Do not pre-select a default or suggest a count. The ranking is a recommendation; the selection is the user's.
+- If the selection departs from the ranking, ask why and log the rationale in the audit trail.
 
 ---
 

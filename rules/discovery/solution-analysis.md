@@ -8,7 +8,7 @@ Analyze the approved PR/FAQ to determine whether it points to a single clear sol
 - Pain points are documented and confirmed
 
 ## Exit
-- **Single solution** → proceed directly to Prototype Spec Generation (1 use case)
+- **Single solution** → proceed directly to Prototype, Step 1 — Spec (1 use case)
 - **Multiple solutions** → extract use cases and merge with Use Case Intake path
 
 ---

@@ -21,6 +21,10 @@ As a **{role}**, I want to **{action}** so that **{outcome}**.
 
 ## Design Context
 
+### Design Source
+- **Source:** {Figma URL | Framer URL | Uploaded mockups | Canva link | "None — defined from scratch"}
+- **Assets referenced:** {list of frames/screens imported, or "N/A"}
+
 ### Brand & Visual Style
 - **Brand URL:** {url or "N/A"}
 - **Primary color:** {hex code}
@@ -143,7 +147,19 @@ As a **{role}**, I want to **{action}** so that **{outcome}**.
 - Simulate LLM responses with pre-scripted text
 - Focus on demonstrating the user experience and workflow
 
-### For Kiro / Claude Code (Full-stack prototype)
+### For Quick Desktop (Full-stack via coding agent)
+- Quick Desktop can trigger Claude Code or Kiro directly via native integration
+- Pass this spec to the coding agent — it contains everything needed to build
+- The coding agent handles project setup, dependency installation, and implementation
+- User iterates with the coding agent and returns to Quick Desktop to continue the workflow
+
+### For Claude Desktop (Full-stack handoff)
+- Save this spec to the project directory
+- Open Claude Code (`claude` in terminal) or Kiro (IDE) in the same directory
+- Tell the agent: "Build the prototype from this PROTOTYPE-*.md spec"
+- Spec is self-contained — no additional context required
+
+### For Kiro / Claude Code (standalone)
 - Can install packages (pip/npm)
 - Can connect to real APIs
 - Can run on localhost

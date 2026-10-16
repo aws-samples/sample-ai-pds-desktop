@@ -29,17 +29,15 @@ Key decisions (customer name, entry point, storage location) are saved to Quick'
 - **Last Updated:** {ISO 8601 timestamp}
 - **Mode:** {Solo | Workshop}
 - **Entry Point:** {1: Pain Points | 2: Use Cases | 3: Existing Specs}
-- **Storage:** {OneDrive path | workspace | export}
+- **Storage:** {QuickSuite Space | Claude Project | OneDrive path | workspace | export}
 
 ## Progress
 | Phase | Status | Artifact |
 |---|---|---|
-| Envision | ✅ Complete | 01-envision/prfaq.md |
-| Solution Analysis | ✅ Complete | Single solution identified |
+| Envision | ✅ Complete | 01-envision/prfaq.md (research: skipped; solution analysis: multiple solutions) |
 | Use Case Intake | 🔄 In Progress | 02-use-case-intake/use-cases.md (5 of 8 documented) |
 | Prioritization | ⬜ Not Started | — |
-| Prototype Specs | ⬜ Not Started | — |
-| Prototype Build | ⬜ Not Started | — |
+| Prototype | ⬜ Not Started | — |
 | Product Strategy | ⬜ Not Started | — |
 | Go-to-Market | ⬜ Not Started | — |
 
@@ -51,7 +49,7 @@ Key decisions (customer name, entry point, storage location) are saved to Quick'
 ## Key Decisions
 - Pain points source: URL (https://example.com/reviews)
 - Solution type: Multiple (4 solutions identified)
-- Top use cases confirmed: [not yet]
+- Use cases selected for prototyping: [not yet]
 
 ## Artifacts Generated
 1. `01-envision/pain-points.md` — 12 pain points confirmed
@@ -73,7 +71,7 @@ Welcome back! Here's where we left off:
 
 **Project:** {name}
 **Current phase:** {phase name}
-**Progress:** {X of 6 capabilities complete}
+**Progress:** phase {n}/6 — {phase name}
 **Last activity:** {what was happening}
 ```
 

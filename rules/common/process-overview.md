@@ -7,7 +7,7 @@ AI-PDS implements 6 capabilities for product discovery and strategy. Each capabi
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │  1. ENVISION                                                │
-│     Pain points → VoC synthesis → PR/FAQ (Working Backwards)│
+│     Pain points → VoC → PR/FAQ → solution analysis (branch) │
 │     Exit: PR/FAQ document                                   │
 ├─────────────────────────────────────────────────────────────┤
 │  2. USE CASE INTAKE                                         │
@@ -15,7 +15,7 @@ AI-PDS implements 6 capabilities for product discovery and strategy. Each capabi
 │     Exit: Use Case Repository                               │
 ├─────────────────────────────────────────────────────────────┤
 │  3. PRIORITIZE                                              │
-│     Dual scoring frameworks → Weighted scoring → Top 3      │
+│     Dual scoring → Ranked backlog → User picks what to build│
 │     Exit: Prioritized Backlog                               │
 ├─────────────────────────────────────────────────────────────┤
 │  4. PROTOTYPE                                               │
@@ -71,14 +71,14 @@ aipds-docs/
 ├── 03-prioritization/
 │   ├── scoring.md
 │   └── ranking.md
-├── 04-prototypes/
+├── 04-prototypes/                  ← one spec per use case the user selected
 │   ├── PROTOTYPE-{slug-1}.md
-│   ├── PROTOTYPE-{slug-2}.md
-│   └── PROTOTYPE-{slug-3}.md
+│   └── PROTOTYPE-{slug-2}.md
 ├── 05-product-strategy/
 │   └── strategy.md
 ├── 06-go-to-market/
 │   └── gtm-plan.md
+├── 07-handoff/                     ← vision.md + handoff-{slug}.zip
 ├── aipds-state.md
 └── audit.md
 ```

@@ -13,10 +13,31 @@ Guide the user from raw customer pain points to a structured PR/FAQ document usi
 
 - `01-envision/pain-points.md` — Confirmed list of customer pain points
 - `01-envision/prfaq.md` — Working Backwards PR/FAQ document
+- `01-envision/research/` — Discovery Research outputs (only if the user ran Step 1)
 
 ---
 
-## Step 1: Customer Context (Quick Desktop Enhancement)
+## Step 1: Discovery Research (Optional)
+
+MANDATORY: ALWAYS offer Discovery Research as the first thing Envision does. Never skip the offer, and never decide on the user's behalf that research is unnecessary or already covered — declining it is the user's call, not yours. Ask exactly once, as a decision card:
+
+<decision question="Would you like to run Discovery Research first — market signals, competitive landscape, and user needs?">
+<option description="Grounds the pain points in evidence before you commit to a direction (~30 min)">Yes — run Discovery Research</option>
+<option description="Go straight to gathering pain points">No — skip research</option>
+</decision>
+
+Only after the user answers may you proceed.
+
+- **Yes** → load `rules/discovery/research.md` and follow it. Outputs go to `01-envision/research/`. When its review gate is approved, return here and continue with Step 2, carrying `research-summary.md` forward as background context.
+- **No** → continue with Step 2.
+
+Research is a step inside Envision, not a phase. The progress indicator stays on Envision's number throughout.
+
+If research ran, use `user-needs.md` to pre-populate candidate pain points in Step 3 (the user still confirms each one), and skip the "AI-assisted research" option in Step 2 — it would repeat the same work.
+
+---
+
+## Step 2: Customer Context (Quick Desktop Enhancement)
 
 Before gathering pain points, check if Quick has context about this customer:
 
@@ -57,7 +78,7 @@ From a URL Free-form text Pull from my connected context AI-assisted research
 
 ---
 
-## Step 2: Pain Point Synthesis
+## Step 3: Pain Point Synthesis
 
 After gathering raw input, synthesize into structured format:
 
@@ -89,7 +110,7 @@ Confirmed — proceed to PR/FAQ Add more Edit the list
 
 ---
 
-## Step 3: PR/FAQ Generation (Working Backwards)
+## Step 4: PR/FAQ Generation (Working Backwards)
 
 Once pain points are confirmed, generate the PR/FAQ using the template from `templates/prfaq-template.md`.
 
@@ -119,7 +140,7 @@ If revision needed:
 
 ---
 
-## Step 4: Save Artifacts
+## Step 5: Save Artifacts
 
 Once PR/FAQ is approved:
 
@@ -151,6 +172,7 @@ A good Envision output has:
 - ✅ Customer FAQ addresses at least 3 likely questions
 - ✅ Internal FAQ addresses feasibility concerns
 - ✅ User has explicitly approved the PR/FAQ
+- ✅ Discovery Research was offered (whether or not it ran)
 
 ---
 
