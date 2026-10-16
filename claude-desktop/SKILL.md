@@ -1,9 +1,9 @@
 ---
-name: ai-pds-discovery
-description: AI-PDS (AI-Driven Product Life Cycle) — guides Product Managers and business leaders through structured product discovery and strategy, from customer pain points to validated prototypes and go-to-market plans. Use when the user says "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", or "working backwards".
+name: ai-pds
+description: AI-PDS (AI-Driven Product Discovery & Strategy) — guides Product Managers and business leaders through structured product discovery and strategy, from customer pain points to validated prototypes and go-to-market plans. Use when the user says "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", or "working backwards".
 ---
 
-# AI-PDS: AI-Driven Product Life Cycle — Discovery & Strategy
+# AI-PDS: AI-Driven Product Discovery & Strategy
 
 **Skill:** AI-PDS (AI Product Discovery & Strategy) · **Version:** 1.1 (Claude Desktop)
 **Triggers:** "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", "working backwards"

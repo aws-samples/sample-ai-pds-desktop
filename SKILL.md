@@ -1,4 +1,4 @@
-# AI-PDS: AI-Driven Product Life Cycle — Discovery & Strategy
+# AI-PDS: AI-Driven Product Discovery & Strategy
 
 **Skill:** AI-PDS (AI Product Discovery & Strategy)**Version:** 1.1**Triggers:** "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", "working backwards"
 

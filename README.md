@@ -42,7 +42,7 @@ More desktop assistants coming soon — stay tuned.
 
 ## Get Started with Quick Desktop
 
-**Fastest:** download `ai-pds-discovery-quick.zip` from the [latest release](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) and skip to step 3 — import that zip in step 6.
+**Fastest:** download `ai-pds-quick-desktop.zip` from the [latest release](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) and skip to step 3 — import that zip in step 6.
 
 **From source:**
 
@@ -51,14 +51,14 @@ More desktop assistants coming soon — stay tuned.
    git clone https://github.com/aws-samples/sample-ai-pds-desktop.git
    cd sample-ai-pds-desktop
    ```
-2. Build the skill — this assembles `dist/quick/ai-pds-discovery/` with only the files the skill needs, and zips it to `dist/quick/ai-pds-discovery.zip`:
+2. Build the skill — this assembles `dist/quick/ai-pds/` with only the files the skill needs, and zips it to `dist/quick/ai-pds-quick-desktop.zip`:
    ```bash
    ./scripts/build-skill.sh quick
    ```
 3. Open **Agents & skills** from the left sidebar
 4. Click the **Skills** tab
 5. Click **+ Create** and import the zip
-6. Select `dist/quick/ai-pds-discovery.zip`
+6. Select `dist/quick/ai-pds-quick-desktop.zip`
 7. In any conversation, say: **"Start AI-PDS"**
 8. Follow the guided workflow
 
@@ -89,7 +89,7 @@ sample-ai-pds-desktop/
 │   ├── SKILL.md                          ← Claude Desktop orchestrator (with YAML frontmatter)
 │   └── README.md                         ← Claude Desktop setup guide
 ├── scripts/
-│   └── build-skill.sh                    ← Assembles dist/<runtime>/ai-pds-discovery/
+│   └── build-skill.sh                    ← Assembles dist/<runtime>/ai-pds/
 ├── rules/
 │   ├── common/
 │   │   ├── process-overview.md           ← Capability model & principles

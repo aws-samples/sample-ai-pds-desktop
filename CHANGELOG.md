@@ -75,11 +75,11 @@ All notable changes to the AI-PDS Desktop Assistants implementation.
 
 ### New: Build script and zip packaging
 
-- Added `scripts/build-skill.sh`, which assembles a self-contained skill per runtime — the runtime's `SKILL.md` plus the shared `rules/` and `templates/` — and zips it: `dist/claude/ai-pds-discovery.zip` and `dist/quick/ai-pds-discovery.zip`. Both Quick Desktop and Claude Desktop import the zip directly.
+- Added `scripts/build-skill.sh`, which assembles a self-contained skill per runtime — the runtime's `SKILL.md` plus the shared `rules/` and `templates/` — and zips it: `dist/claude/ai-pds-claude-desktop.zip` and `dist/quick/ai-pds-quick-desktop.zip`. Both Quick Desktop and Claude Desktop import the zip directly.
 - Replaces the manual install steps: no more copying `claude-desktop/SKILL.md` over the root `SKILL.md`, or deleting `claude-desktop/` before import. The repo is never modified, so one checkout serves both runtimes.
 - Run with no argument for both runtimes, or `claude` / `quick` for one. It prints the staged file count (19 files: 1 `SKILL.md` + 13 rules + 5 templates) so the package can be checked before upload.
 - `dist/` added to `.gitignore`.
-- The release workflow now runs the same script and publishes `ai-pds-discovery-quick.zip` and `ai-pds-discovery-claude.zip` (previously `ai-pds-quick-desktop.zip` and `ai-pds-claude-desktop.zip`).
+- The release workflow now runs the same script and publishes them as `ai-pds-quick-desktop.zip` and `ai-pds-claude-desktop.zip` — the same asset names as before, so existing download links keep working.
 
 ### Improved: Documentation
 

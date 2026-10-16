@@ -9,17 +9,17 @@
 # Output layout — each runtime gets its own tree, so building one never
 # clobbers the other and neither ever contains the repo's claude-desktop/ folder:
 #
-#   dist/claude/ai-pds-discovery/     staged skill
-#   dist/claude/ai-pds-discovery.zip  upload this to Claude Desktop
-#   dist/quick/ai-pds-discovery/      staged skill
-#   dist/quick/ai-pds-discovery.zip   import this into Quick Desktop
+#   dist/claude/ai-pds/                    staged skill
+#   dist/claude/ai-pds-claude-desktop.zip  upload this to Claude Desktop
+#   dist/quick/ai-pds/                     staged skill
+#   dist/quick/ai-pds-quick-desktop.zip    import this into Quick Desktop
 #
 # The repo itself is never modified — everything is copied into dist/.
 
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SKILL_NAME="ai-pds-discovery"
+SKILL_NAME="ai-pds"
 
 # Only these paths are copied into a staged skill. Anything else in the repo
 # (claude-desktop/, docs, dist/ itself) is deliberately left out.
@@ -74,9 +74,12 @@ build_one() {
   find "$out_dir" -type f | sed "s|$REPO_ROOT/||" | sort
   echo
 
-  local zip_path="$out_base/$SKILL_NAME.zip"
+  # The folder inside the zip stays $SKILL_NAME (it must match the skill name);
+  # only the archive itself is named per runtime.
+  local zip_name="$SKILL_NAME-$runtime-desktop.zip"
+  local zip_path="$out_base/$zip_name"
   rm -f "$zip_path"
-  (cd "$out_base" && zip -qr "$SKILL_NAME.zip" "$SKILL_NAME")
+  (cd "$out_base" && zip -qr "$zip_name" "$SKILL_NAME")
   echo "Zipped for upload: ${zip_path#"$REPO_ROOT"/}"
   if [[ "$runtime" == "claude" ]]; then
     echo "Next: Claude Desktop → Customize → Skills → Add → upload that zip."
@@ -92,10 +95,6 @@ case "${1:-both}" in
   both | all) RUNTIMES=(claude quick) ;;
   *) usage ;;
 esac
-
-# Clear the pre-split layout so a stale dist/ai-pds-discovery/ can't be imported
-# by mistake after an upgrade from an older checkout.
-rm -rf "$REPO_ROOT/dist/$SKILL_NAME" "$REPO_ROOT/dist/$SKILL_NAME.zip"
 
 for runtime in "${RUNTIMES[@]}"; do
   build_one "$runtime"

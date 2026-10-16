@@ -26,16 +26,16 @@ jobs:
           ./scripts/build-skill.sh both
 
       - name: Name release assets
-        # Both zips contain a single top-level ai-pds-discovery/ folder.
+        # Both zips contain a single top-level ai-pds/ folder.
         run: |
           set -euo pipefail
-          mv dist/claude/ai-pds-discovery.zip dist/ai-pds-discovery-claude.zip
-          mv dist/quick/ai-pds-discovery.zip dist/ai-pds-discovery-quick.zip
+          mv dist/claude/ai-pds-claude-desktop.zip dist/
+          mv dist/quick/ai-pds-quick-desktop.zip dist/
 
       - name: Publish release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
           files: |
-            dist/ai-pds-discovery-quick.zip
-            dist/ai-pds-discovery-claude.zip
+            dist/ai-pds-quick-desktop.zip
+            dist/ai-pds-claude-desktop.zip

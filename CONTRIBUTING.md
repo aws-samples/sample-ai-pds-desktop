@@ -46,10 +46,10 @@ Releases are automated by the [`.github/workflows/release.yml`](.github/workflow
 GitHub Actions workflow. Pushing a version tag runs [`scripts/build-skill.sh`](scripts/build-skill.sh)
 and publishes a GitHub Release with two ready-to-import zips attached:
 
-* `ai-pds-discovery-quick.zip` — Quick Desktop skill (root `SKILL.md` + `rules/` + `templates/`)
-* `ai-pds-discovery-claude.zip` — Claude Desktop skill (`claude-desktop/SKILL.md` + `rules/` + `templates/`)
+* `ai-pds-quick-desktop.zip` — Quick Desktop skill (root `SKILL.md` + `rules/` + `templates/`)
+* `ai-pds-claude-desktop.zip` — Claude Desktop skill (`claude-desktop/SKILL.md` + `rules/` + `templates/`)
 
-Each zip contains a single `ai-pds-discovery/` folder — the same output as running the build script locally.
+Each zip contains a single `ai-pds/` folder — the same output as running the build script locally.
 
 To cut a new release:
 
