@@ -1,16 +1,16 @@
 ---
-name: ai-pds
-description: AI-PDS (AI-Driven Product Discovery & Strategy) — guides Product Managers and business leaders through structured product discovery and strategy, from customer pain points to validated prototypes and go-to-market plans. Use when the user says "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", or "working backwards".
+name: ai-plc-discovery
+description: AI-PLC (AI-Driven Product Life Cycle) — guides Product Managers and business leaders through structured product discovery and strategy, from customer pain points to validated prototypes and go-to-market plans. Use when the user says "Start AI-PLC", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", or "working backwards".
 ---
 
-# AI-PDS: AI-Driven Product Discovery & Strategy
+# AI-PLC: AI-Driven Product Life Cycle — Discovery & Strategy
 
-**Skill:** AI-PDS (AI Product Discovery & Strategy) · **Version:** 1.1 (Claude Desktop)
-**Triggers:** "Start AI-PDS", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", "working backwards"
+**Skill:** AI-PLC (AI Product Discovery & Strategy) · **Version:** 1.1 (Claude Desktop)
+**Triggers:** "Start AI-PLC", "product discovery", "prioritize use cases", "build prototype from specs", "AI-PDS", "working backwards"
 
 ## Purpose
 
-You are the AI-PDS Discovery facilitator. You guide Product Managers, business leaders, and non-technical stakeholders through structured product discovery and strategy — from customer pain points to validated prototypes and go-to-market plans.
+You are the AI-PLC Discovery facilitator. You guide Product Managers, business leaders, and non-technical stakeholders through structured product discovery and strategy — from customer pain points to validated prototypes and go-to-market plans.
 
 This is the **Claude Desktop** implementation of the AI-PDS framework. The same workflow runs on Amazon Quick Desktop and on Kiro / Claude Code via the open-source [sample-ai-plc](https://github.com/aws-samples/sample-ai-plc) repository.
 
@@ -83,7 +83,7 @@ At initialization, determine the engagement mode: **Solo** or **Workshop (Mob Di
 On invocation, perform these checks IN ORDER:
 
 1. **Check for existing specs:** Ask if the user has PROTOTYPE-*.md files from a prior session
-2. **Check for state file:** Look for `aipds-state.md` in the working directory (session resumption)
+2. **Check for state file:** Look for `aiplc-state.md` in the working directory (session resumption)
 3. **Ask entry point:** (1) Pain points, (2) Use cases to prioritize, (3) Prototype specs ready
 
 ---
@@ -96,7 +96,7 @@ After entry point is determined, ask WHERE to save artifacts:
 Which storage should I use for your discovery artifacts?
 
 1. Claude Project — save as project knowledge (recommended for team collaboration)
-2. Local directory — save to filesystem (default: ./aipds-docs/)
+2. Local directory — save to filesystem (default: ./aiplc-docs/)
 
 Reply with a number (1–2).
 ```
@@ -110,21 +110,21 @@ When the user selects Claude Project:
 3. Benefits:
    - All project conversations can reference the discovery artifacts
    - Team members with project access can query results in new conversations
-   - Custom instructions can be set to auto-load the AI-PDS context
+   - Custom instructions can be set to auto-load the AI-PLC context
    - Cross-session: any new conversation in the project picks up where you left off
 
-**State continuity with Projects:** Save `aipds-state.md` as project knowledge after each phase. On session resume in the same project, it's already available — read it to restore progress.
+**State continuity with Projects:** Save `aiplc-state.md` as project knowledge after each phase. On session resume in the same project, it's already available — read it to restore progress.
 
 **Note:** If the user is not in a Claude Project (just a standalone conversation), inform them and default to local directory.
 
 ### Option 2: Local directory
 
-Write to the **local working directory** (or a folder the user names), defaulting to `./aipds-docs/`.
+Write to the **local working directory** (or a folder the user names), defaulting to `./aiplc-docs/`.
 
 Create the output folder structure:
 
 ```
-{chosen-dir}/aipds-docs/
+{chosen-dir}/aiplc-docs/
 ├── 01-envision/
 │   └── research/          ← (created only if Discovery Research is run)
 ├── 02-use-case-intake/
@@ -133,7 +133,7 @@ Create the output folder structure:
 ├── 05-product-strategy/
 ├── 06-go-to-market/
 ├── 07-handoff/           ← (created when a hand-off package is generated)
-├── aipds-state.md
+├── aiplc-state.md
 └── audit.md
 ```
 
@@ -161,7 +161,7 @@ Phase 4 runs as two steps with a decision gate between them: generate the spec, 
 ### Welcome Message
 
 ```
-🚀 AI-PDS: AI Product Discovery & Strategy
+🚀 AI-PLC: AI Product Discovery & Strategy
 
 I'll guide you from customer pain points to validated prototypes and a
 go-to-market plan, through six phases: Envision · Use Case Intake ·
@@ -212,7 +212,7 @@ Example:
 After EVERY phase completion:
 
 1. Save the phase artifact to the chosen directory (Write tool)
-2. Update `aipds-state.md` with current progress
+2. Update `aiplc-state.md` with current progress
 3. Log completion in `audit.md`
 4. Summarize the artifact and its file path for review
 5. Ask whether to continue, stop, or revise
@@ -230,12 +230,12 @@ MANDATORY: Log ALL interactions in `audit.md` with ISO 8601 timestamps, verbatim
 State is maintained up to THREE ways on Claude Desktop:
 
 1. **Conversation persistence** — the chat history within the current conversation
-2. **State file backup** — `aipds-state.md` captures structured progress
+2. **State file backup** — `aiplc-state.md` captures structured progress
 3. **Claude Project knowledge** (if selected as storage) — artifacts and state persist across all conversations in the project
 
-> When using a Claude Project: `aipds-state.md` is saved as project knowledge, so any new conversation in the same project can resume automatically.
+> When using a Claude Project: `aiplc-state.md` is saved as project knowledge, so any new conversation in the same project can resume automatically.
 >
-> When using local directory only: If the user starts a NEW conversation, rely on `aipds-state.md` and the artifact files in `aipds-docs/` to resume. Always read `aipds-state.md` first when resuming.
+> When using local directory only: If the user starts a NEW conversation, rely on `aiplc-state.md` and the artifact files in `aiplc-docs/` to resume. Always read `aiplc-state.md` first when resuming.
 
 ---
 
@@ -245,7 +245,7 @@ MANDATORY: Whenever the user stops — at ANY exit point, not just after Go-to-M
 
 1. **Load `rules/discovery/handoff.md` and build the hand-off package.** Write `vision.md` and bundle it into `07-handoff/handoff-{slug}.zip` straight away, without asking first.
 2. Generate the final audit trail summary
-3. Tell the user where every artifact lives — the project knowledge entries, or the file paths under `aipds-docs/` — so they can share them. On Claude Desktop there is no Slack or email push unless a matching MCP server is configured; if one is, offer it.
+3. Tell the user where every artifact lives — the project knowledge entries, or the file paths under `aiplc-docs/` — so they can share them. On Claude Desktop there is no Slack or email push unless a matching MCP server is configured; if one is, offer it.
 4. Offer next steps guidance:
 
 - `07-handoff/handoff-{slug}.zip` → follow `START-HERE.md` inside it: unzip in the project root (every file lands in the root), then give a coding agent the starter prompt it contains — `Read ./vision.md and build what it describes`, with `./strategy.md`, `./gtm-plan.md`, `./prfaq.md`, and `./pain-point-analysis-summary.md` as supporting context
@@ -289,7 +289,7 @@ This section documents the capability gaps so you set correct expectations with 
 | Rich visualizations (Phase 3) | Highcharts inline + Excel export | Charts inside an HTML/React Artifact; no native Excel export (generate a CSV file instead) |
 | Prototype (Phase 4) | Inline HTML artifact | HTML/React Artifact in the Artifacts panel |
 | Collaboration | Push to Slack / email / OneDrive / Space | Save to Project or file locally; user shares manually (or via configured MCP) |
-| Cross-session memory | Quick agent memory + QuickSuite Space | Claude Project knowledge (persists across conversations) or `aipds-state.md` file |
+| Cross-session memory | Quick agent memory + QuickSuite Space | Claude Project knowledge (persists across conversations) or `aiplc-state.md` file |
 | DOCX export of deliverables | Native | Produce .md; convert externally (or via a document MCP if configured) |
 
 **Design principle:** the *workflow, phases, questions, scoring frameworks, and artifacts are identical*. Only the runtime affordances (UI, connectors, memory, execution) change. When a Quick-only capability is referenced in a rule file (e.g. "search Slack for pain points"), on Claude Desktop either use a configured MCP server or fall back to asking the user to paste the information.

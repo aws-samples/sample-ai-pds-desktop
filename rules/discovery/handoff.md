@@ -105,7 +105,7 @@ Source: audit.md
 {Everything the team must resolve before or during delivery, including any Core Answer that discovery did not settle.}
 
 ## Source Artifacts
-{Index of every AI-PDS file produced, with a one-line description of each. Mark `strategy.md`, `gtm-plan.md`, `prfaq.md`, and `pain-point-analysis-summary.md` as included in the hand-off zip; every other file stays in AI-PDS storage, and `vision.md` carries what the team needs from it.}
+{Index of every AI-PLC file produced, with a one-line description of each. Mark `strategy.md`, `gtm-plan.md`, `prfaq.md`, and `pain-point-analysis-summary.md` as included in the hand-off zip; every other file stays in AI-PLC storage, and `vision.md` carries what the team needs from it.}
 ```
 
 If a section has no source because that phase was skipped, say so explicitly — `Not covered: the workflow stopped after Prototype` — rather than filling it in from inference.
@@ -127,7 +127,7 @@ As soon as `vision.md` is written, write `07-handoff/pain-point-analysis-summary
 Rules:
 
 1. **Everything at the root of the zip.** No subfolders.
-2. **Only these six files.** `strategy.md`, `gtm-plan.md`, and `prfaq.md` are copied as the user approved them — never re-extracted, merged, or summarised. Leave any of them out if its phase did not run. No other AI-PDS artifact goes in the package: `vision.md` already summarises and cites the research, use cases, ranking, prototype spec, and decisions. In particular, never include `aipds-state.md` — AI-PDS session state, not product knowledge.
+2. **Only these six files.** `strategy.md`, `gtm-plan.md`, and `prfaq.md` are copied as the user approved them — never re-extracted, merged, or summarised. Leave any of them out if its phase did not run. No other AI-PLC artifact goes in the package: `vision.md` already summarises and cites the research, use cases, ranking, prototype spec, and decisions. In particular, never include `aiplc-state.md` — AI-PLC session state, not product knowledge.
 3. **Real files only.** Copy the files themselves — no symlinks, no dotfiles.
 
 If this runtime cannot create zip files, or cannot write to the chosen storage, write the same files, flat, into `07-handoff/handoff-{slug}/` instead and tell the user plainly that it still needs zipping or copying. Never say a zip was created unless it was.
@@ -167,7 +167,7 @@ The starter prompt names `vision.md` first and then the supporting files — onl
 ```markdown
 # Start from this hand-off — {Product / Initiative Name}
 
-Produced by AI-PDS discovery. `vision.md` is the input; the other files are
+Produced by AI-PLC discovery. `vision.md` is the input; the other files are
 the discovery documents it cites.
 
 **Package contents:**
@@ -202,7 +202,7 @@ deleted after you start.
 ## Step 2: Save and Distribute
 
 1. Save `vision.md`, `pain-point-analysis-summary.md`, and the zip to `07-handoff/` in the chosen storage location
-2. Update `aipds-state.md`
+2. Update `aiplc-state.md`
 3. Log in `audit.md`
 4. Present the zip with the delivery instructions from "Delivery instructions". The user can ask for changes to `vision.md`; if they do, rebuild the zip
 5. Offer distribution using the options in the "Discovery Complete" section of `SKILL.md`

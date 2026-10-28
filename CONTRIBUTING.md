@@ -49,7 +49,7 @@ and publishes a GitHub Release with two ready-to-import zips attached:
 * `ai-pds-quick-desktop.zip` — Quick Desktop skill (root `SKILL.md` + `rules/` + `templates/`)
 * `ai-pds-claude-desktop.zip` — Claude Desktop skill (`claude-desktop/SKILL.md` + `rules/` + `templates/`)
 
-Each zip contains a single `ai-pds/` folder — the same output as running the build script locally.
+Each zip contains a single `ai-plc-discovery/` folder — the same output as running the build script locally.
 
 To cut a new release:
 

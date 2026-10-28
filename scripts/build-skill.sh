@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Assembles self-contained AI-PDS skill folders under dist/, one per runtime.
+# Assembles self-contained AI-PLC skill folders under dist/, one per runtime.
 #
 #   ./scripts/build-skill.sh          # both runtimes (default)
 #   ./scripts/build-skill.sh claude   # Claude Desktop only (SKILL.md from claude-desktop/)
@@ -9,9 +9,9 @@
 # Output layout — each runtime gets its own tree, so building one never
 # clobbers the other and neither ever contains the repo's claude-desktop/ folder:
 #
-#   dist/claude/ai-pds/                    staged skill
+#   dist/claude/ai-plc-discovery/          staged skill
 #   dist/claude/ai-pds-claude-desktop.zip  upload this to Claude Desktop
-#   dist/quick/ai-pds/                     staged skill
+#   dist/quick/ai-plc-discovery/           staged skill
 #   dist/quick/ai-pds-quick-desktop.zip    import this into Quick Desktop
 #
 # The repo itself is never modified — everything is copied into dist/.
@@ -19,7 +19,9 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-SKILL_NAME="ai-pds"
+SKILL_NAME="ai-plc-discovery"
+# Release assets keep the repo's AI-PDS name so existing download links work.
+ZIP_PREFIX="ai-pds"
 
 # Only these paths are copied into a staged skill. Anything else in the repo
 # (claude-desktop/, docs, dist/ itself) is deliberately left out.
@@ -76,7 +78,7 @@ build_one() {
 
   # The folder inside the zip stays $SKILL_NAME (it must match the skill name);
   # only the archive itself is named per runtime.
-  local zip_name="$SKILL_NAME-$runtime-desktop.zip"
+  local zip_name="$ZIP_PREFIX-$runtime-desktop.zip"
   local zip_path="$out_base/$zip_name"
   rm -f "$zip_path"
   (cd "$out_base" && zip -qr "$zip_name" "$SKILL_NAME")

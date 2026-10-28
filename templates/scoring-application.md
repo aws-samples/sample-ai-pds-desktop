@@ -134,4 +134,4 @@ Weighted Score = (User Impact × 0.25) + (Feasibility × 0.20) + (Data × 0.15)
 
 ---
 
-*AI-PDS Application Scoring Framework v1.0*
+*AI-PLC Application Scoring Framework v1.0*

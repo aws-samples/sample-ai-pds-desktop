@@ -6,7 +6,7 @@ All notable changes to the AI-PDS Desktop Assistants implementation.
 
 ### Naming
 
-- Renamed **AI-PLC → AI-PDS** throughout all files (`SKILL.md`, rules, templates, README, state files). The link to the external `sample-ai-plc` repository is unchanged.
+- The workshop content keeps its **AI-PLC** naming — `SKILL.md`, rules, templates, the "Start AI-PLC" trigger, the `ai-plc-discovery` skill name and the `aiplc-state.md` / `aiplc-docs/` state files. **AI-PDS** names the framework, this repo and the release zips (`ai-pds-quick-desktop.zip`, `ai-pds-claude-desktop.zip`).
 
 ### New: Discovery Research (optional first step of Envision)
 

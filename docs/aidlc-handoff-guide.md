@@ -1,8 +1,8 @@
-# Starting From an AI-PDS Hand-off
+# Starting From an AI-PLC Hand-off
 
-This guide is for **delivery teams** — engineers and product teams who receive discovery work from a product lead who ran AI-PDS. It explains what the hand-off package contains and how to start building from it.
+This guide is for **delivery teams** — engineers and product teams who receive discovery work from a product lead who ran AI-PLC. It explains what the hand-off package contains and how to start building from it.
 
-If you ran AI-PDS yourself, the same steps apply: AI-PDS builds the package when you stop, then follow this guide.
+If you ran AI-PLC yourself, the same steps apply: AI-PLC builds the package when you stop, then follow this guide.
 
 ---
 
@@ -19,7 +19,7 @@ The exact starter prompt for your package is in `START-HERE.md`.
 
 ## What you receive
 
-AI-PDS produces one zip, `handoff-{slug}.zip`, with every file at the root of the archive — no folders — so it unzips straight into the root of your project:
+AI-PLC produces one zip, `handoff-{slug}.zip`, with every file at the root of the archive — no folders — so it unzips straight into the root of your project:
 
 ```text
 handoff-{slug}.zip
@@ -31,7 +31,7 @@ handoff-{slug}.zip
 └── pain-point-analysis-summary.md   ← summarised pain-point analysis from discovery
 ```
 
-`strategy.md`, `gtm-plan.md`, and `prfaq.md` are the product lead's approved documents, unchanged. They only appear if those phases ran — AI-PDS lets the product lead stop at any phase, so a package from an early exit may contain fewer files. `pain-point-analysis-summary.md` is generated from the confirmed pain points and any research evidence.
+`strategy.md`, `gtm-plan.md`, and `prfaq.md` are the product lead's approved documents, unchanged. They only appear if those phases ran — AI-PLC lets the product lead stop at any phase, so a package from an early exit may contain fewer files. `pain-point-analysis-summary.md` is generated from the confirmed pain points and any research evidence.
 
 The other discovery artifacts — research, use cases, ranking, prototype spec, decision log — are not in the package. `vision.md` summarises what you need from each and cites it by name.
 
@@ -63,7 +63,7 @@ unzip /path/to/handoff-{slug}.zip
 
 Copy real files into the project root; don't symlink them in.
 
-**Received a folder instead of a zip?** Some desktop assistants can't create zip files, in which case AI-PDS writes the same files into a folder, `handoff-{slug}/`. Copy its contents into the project root the same way.
+**Received a folder instead of a zip?** Some desktop assistants can't create zip files, in which case AI-PLC writes the same files into a folder, `handoff-{slug}/`. Copy its contents into the project root the same way.
 
 ### 2. Give your coding agent the starter prompt
 
@@ -80,7 +80,7 @@ Copy the prompt from `START-HERE.md`. It names `vision.md` first, then only the 
 ## Good to know
 
 - **Every claim cites its source.** If something in `vision.md` looks wrong, the cited file name tells the product lead where it came from.
-- **`(assumed)` marks inference.** Anything labelled `(assumed)` is AI-PDS's inference, not something the product lead stated — verify it first.
+- **`(assumed)` marks inference.** Anything labelled `(assumed)` is AI-PLC's inference, not something the product lead stated — verify it first.
 - **`START-HERE.md` is for people.** It isn't part of the starter prompt; keep or delete it after you start.
 
 ---
@@ -97,4 +97,4 @@ Copy the prompt from `START-HERE.md`. It names `vision.md` first, then only the 
 
 ## Asking for a hand-off
 
-If your product lead hasn't produced one yet: ask them to finish (or stop) their AI-PDS session. AI-PDS builds the hand-off at every exit point, so it works even if they stopped after the prototype spec. See the main [README](../README.md) for how they install and run AI-PDS.
+If your product lead hasn't produced one yet: ask them to finish (or stop) their AI-PLC session. AI-PLC builds the hand-off at every exit point, so it works even if they stopped after the prototype spec. See the main [README](../README.md) for how they install and run AI-PLC.

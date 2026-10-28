@@ -162,7 +162,7 @@ Produce `01-envision/research/research-summary.md` consolidating:
 When research is approved:
 
 - Save all artifacts to chosen storage (workspace, OneDrive, QuickSuite Space, or Claude Project)
-- Update `aipds-state.md` with research completion
+- Update `aiplc-state.md` with research completion
 - Log in `audit.md`
 - Inform the user: "Research findings will be used as context for the rest of Envision (pain points) and later for Product Strategy (competitive positioning)."
 - Return to `envision.md` and continue with its next step (Customer Context), with research findings loaded as background context

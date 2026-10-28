@@ -1,7 +1,7 @@
 # Go-to-Market — Launch Planning & Sales Strategy
 
 ## Purpose
-Develop a comprehensive go-to-market plan covering customer segmentation, sales motions, launch sequencing, channel strategy, and messaging. This is the final capability in the AI-PDS Discovery workflow.
+Develop a comprehensive go-to-market plan covering customer segmentation, sales motions, launch sequencing, channel strategy, and messaging. This is the final capability in the AI-PLC Discovery workflow.
 
 ## Entry Conditions
 - Product Strategy is complete and approved
@@ -161,7 +161,7 @@ Open in session tab for review.
 After GTM approval:
 
 ```
-🎉 **AI-PDS Discovery is Complete!**
+🎉 **AI-PLC Discovery is Complete!**
 
 Here's what we've produced:
 - ✅ Pain Points & PR/FAQ (01-envision/)

@@ -26,7 +26,7 @@ jobs:
           ./scripts/build-skill.sh both
 
       - name: Name release assets
-        # Both zips contain a single top-level ai-pds/ folder.
+        # Both zips contain a single top-level ai-plc-discovery/ folder.
         run: |
           set -euo pipefail
           mv dist/claude/ai-pds-claude-desktop.zip dist/

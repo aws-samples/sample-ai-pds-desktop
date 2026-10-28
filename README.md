@@ -8,7 +8,7 @@ This repo provides the **Desktop Assistants** implementation. For Agentic IDE im
 
 ## What This Skill Does
 
-Guides Product Managers and business leaders through the AI-PDS Discovery workflow:
+Guides Product Managers and business leaders through the AI-PLC Discovery workflow:
 
 | Capability | What happens | You get |
 |---|---|---|
@@ -23,7 +23,7 @@ Guides Product Managers and business leaders through the AI-PDS Discovery workfl
 
 **Three entry points:** Start from pain points, use cases, or existing prototype specs.  
 **Every stage is an exit point:** Stop whenever you have what you need.  
-**Hand-off at any exit:** Whenever you stop, AI-PDS turns what you have into a `vision.md` and packages it with the strategy, GTM plan, PR/FAQ, and a pain-point analysis summary as a zip ready to unzip into the delivery team's project. Delivery teams receiving a hand-off: see [`docs/aidlc-handoff-guide.md`](docs/aidlc-handoff-guide.md).
+**Hand-off at any exit:** Whenever you stop, AI-PLC turns what you have into a `vision.md` and packages it with the strategy, GTM plan, PR/FAQ, and a pain-point analysis summary as a zip ready to unzip into the delivery team's project. Delivery teams receiving a hand-off: see [`docs/aidlc-handoff-guide.md`](docs/aidlc-handoff-guide.md).
 
 ---
 
@@ -51,7 +51,7 @@ More desktop assistants coming soon — stay tuned.
    git clone https://github.com/aws-samples/sample-ai-pds-desktop.git
    cd sample-ai-pds-desktop
    ```
-2. Build the skill — this assembles `dist/quick/ai-pds/` with only the files the skill needs, and zips it to `dist/quick/ai-pds-quick-desktop.zip`:
+2. Build the skill — this assembles `dist/quick/ai-plc-discovery/` with only the files the skill needs, and zips it to `dist/quick/ai-pds-quick-desktop.zip`:
    ```bash
    ./scripts/build-skill.sh quick
    ```
@@ -59,7 +59,7 @@ More desktop assistants coming soon — stay tuned.
 4. Click the **Skills** tab
 5. Click **+ Create** and import the zip
 6. Select `dist/quick/ai-pds-quick-desktop.zip`
-7. In any conversation, say: **"Start AI-PDS"**
+7. In any conversation, say: **"Start AI-PLC"**
 8. Follow the guided workflow
 
 Each runtime is staged into its own folder (`dist/quick/`, `dist/claude/`), so building one never overwrites the other and neither ever contains the `claude-desktop/` folder. Run the script with no argument to build both at once:
@@ -84,12 +84,12 @@ sample-ai-pds-desktop/
 ├── CODE_OF_CONDUCT.md
 ├── LICENSE
 ├── docs/
-│   └── aidlc-handoff-guide.md            ← For delivery teams: starting from an AI-PDS hand-off
+│   └── aidlc-handoff-guide.md            ← For delivery teams: starting from an AI-PLC hand-off
 ├── claude-desktop/
 │   ├── SKILL.md                          ← Claude Desktop orchestrator (with YAML frontmatter)
 │   └── README.md                         ← Claude Desktop setup guide
 ├── scripts/
-│   └── build-skill.sh                    ← Assembles dist/<runtime>/ai-pds/
+│   └── build-skill.sh                    ← Assembles dist/<runtime>/ai-plc-discovery/
 ├── rules/
 │   ├── common/
 │   │   ├── process-overview.md           ← Capability model & principles
