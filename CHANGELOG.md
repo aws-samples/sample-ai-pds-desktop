@@ -2,7 +2,7 @@
 
 All notable changes to the AI-PDS Desktop Assistants implementation.
 
-## 1.1 — unreleased
+## 1.1
 
 ### Naming
 
@@ -82,9 +82,9 @@ All notable changes to the AI-PDS Desktop Assistants implementation.
 
 ### Improved: Documentation
 
-- README install steps rewritten around the build script and release zips.
+- Install is download-only: the README and Claude Desktop setup use the release zips, with no `git clone` or build step. Building from source moved to `CONTRIBUTING.md` ("Building the skill locally").
 - Claude Desktop setup rewritten: prerequisites, upload via **Customize → Skills → Add**, verify **19 files**, artifact-storage options (Project, Filesystem MCP, copy-out), troubleshooting table, and update/remove steps.
-- `CONTRIBUTING.md` release steps updated for the new packaging.
+- `CONTRIBUTING.md` release steps updated for the new packaging, plus a new section on building and testing the skill locally.
 
 ### Fixed: other
 

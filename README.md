@@ -33,8 +33,8 @@ This repo currently supports:
 
 | Implementation | Setup |
 |---|---|
-| **Amazon Quick Desktop** | Default. See instructions below |
-| **Claude Desktop** | `./scripts/build-skill.sh claude`, then upload the zip. See [`claude-desktop/README.md`](claude-desktop/README.md). |
+| **Amazon Quick Desktop** | Download `ai-pds-quick-desktop.zip` — see below |
+| **Claude Desktop** | Download `ai-pds-claude-desktop.zip` — see [`claude-desktop/README.md`](claude-desktop/README.md) |
 
 More desktop assistants coming soon — stay tuned.
 
@@ -42,33 +42,16 @@ More desktop assistants coming soon — stay tuned.
 
 ## Get Started with Quick Desktop
 
-**Fastest:** download `ai-pds-quick-desktop.zip` from the [latest release](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) and skip to step 3 — import that zip in step 6.
+1. Download `ai-pds-quick-desktop.zip` from the [latest release](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) — don't unzip it
+2. Open **Agents & skills** from the left sidebar
+3. Click the **Skills** tab
+4. Click **+ Create** and import the zip
+5. In any conversation, say: **"Start AI-PLC"**
+6. Follow the guided workflow
 
-**From source:**
+**To update:** download the zip from the latest release, remove the existing skill, and import the new zip.
 
-1. Clone this repo:
-   ```bash
-   git clone https://github.com/aws-samples/sample-ai-pds-desktop.git
-   cd sample-ai-pds-desktop
-   ```
-2. Build the skill — this assembles `dist/quick/ai-plc-discovery/` with only the files the skill needs, and zips it to `dist/quick/ai-pds-quick-desktop.zip`:
-   ```bash
-   ./scripts/build-skill.sh quick
-   ```
-3. Open **Agents & skills** from the left sidebar
-4. Click the **Skills** tab
-5. Click **+ Create** and import the zip
-6. Select `dist/quick/ai-pds-quick-desktop.zip`
-7. In any conversation, say: **"Start AI-PLC"**
-8. Follow the guided workflow
-
-Each runtime is staged into its own folder (`dist/quick/`, `dist/claude/`), so building one never overwrites the other and neither ever contains the `claude-desktop/` folder. Run the script with no argument to build both at once:
-
-```bash
-./scripts/build-skill.sh
-```
-
-The build script never modifies the repo, so the same checkout serves both implementations — no need to delete or overwrite anything. Re-run it after a `git pull` and re-import to update.
+Want to change the skill itself? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 For Claude Desktop setup, see [`claude-desktop/README.md`](claude-desktop/README.md).
 

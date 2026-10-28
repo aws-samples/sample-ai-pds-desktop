@@ -8,22 +8,13 @@ This folder contains the **Claude Desktop** specific `SKILL.md` for AI-PDS (AI-D
 |---|---|
 | Claude Desktop with **Skills** available on your plan | Skills are the mechanism that loads AI-PLC. If you don't see **Customize → Skills**, your plan or app version doesn't have it yet. |
 | Latest Claude Desktop release | Skills support is recent; update before troubleshooting anything else. |
-| `zip` and `bash` on your machine | Used by the build script below. Both ship with macOS and Linux; on Windows use WSL or Git Bash. |
 | A **Project** to run the workshop in (recommended) | Gives every phase's artifact somewhere to persist across chats. See [Artifact storage](#artifact-storage). |
 
 ## Install
 
-**Fastest:** download `ai-pds-claude-desktop.zip` from the [latest release](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) and upload it as-is in step 2 — no build needed.
+**1. Download the skill.** Get `ai-pds-claude-desktop.zip` from the [latest release](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest). Don't unzip it.
 
-**1. Build the skill folder.** From the repo root:
-
-```bash
-./scripts/build-skill.sh claude
-```
-
-This assembles `dist/claude/ai-plc-discovery/` (the Claude `SKILL.md` plus the shared `rules/` and `templates/`) and zips it to `dist/claude/ai-pds-claude-desktop.zip`. Nothing in the repo is modified, and the Quick Desktop build lives separately under `dist/quick/`, so one checkout serves both without either clobbering the other. Omit the `claude` argument to build both runtimes at once.
-
-**2. Upload it.** In Claude Desktop: **Customize → Skills → Add**, then select `dist/claude/ai-pds-claude-desktop.zip`.
+**2. Upload it.** In Claude Desktop: **Customize → Skills → Add**, then select the downloaded `ai-pds-claude-desktop.zip`.
 
 **3. Verify it loaded.** Reopen **Customize → Skills** and confirm `ai-plc-discovery` is listed and enabled, with **19 files** (1 `SKILL.md` + 13 rules + 5 templates). Do this *before* a live workshop — a skill that silently failed to load looks exactly like a skill that loaded until you try to use it, and a short file count means the shared `rules/` or `templates/` didn't make it into the zip.
 
@@ -40,7 +31,7 @@ ai-plc-discovery/
 └── templates/          ← copied from the repo root
 ```
 
-The zip contains a single top-level `ai-plc-discovery/` folder with `SKILL.md` at its root. `SKILL.md` references `rules/` and `templates/` by relative path, which is why the build script exists rather than a bare `cp` — uploading `SKILL.md` on its own will load the skill but break it at the first phase transition.
+The zip contains a single top-level `ai-plc-discovery/` folder with `SKILL.md` at its root. `SKILL.md` references `rules/` and `templates/` by relative path, so upload the zip as-is — uploading `SKILL.md` on its own will load the skill but break it at the first phase transition.
 
 ## Artifact storage
 
@@ -57,22 +48,15 @@ Slack, Google Drive/Gmail, and Fetch/web-search MCP servers are optional and res
 | Symptom | Cause | Fix |
 |---|---|---|
 | "Start AI-PLC" gets a generic reply | Skill not loaded or not enabled | Check **Customize → Skills** for `ai-plc-discovery`; re-upload if absent |
-| Skill loads, then fails partway through a phase | `rules/` or `templates/` missing from the zip | Rebuild with `./scripts/build-skill.sh claude` — don't zip `SKILL.md` alone |
+| Skill loads, then fails partway through a phase | `rules/` or `templates/` missing from the zip | Re-download the zip from the latest release and re-upload it as-is — don't upload `SKILL.md` alone |
 | Upload rejected or skill won't appear | Invalid YAML frontmatter in `SKILL.md` | The first lines must be `---`, `name: ai-plc-discovery`, `description: …`, `---` |
-| Fewer than 19 files listed after upload | Partial or stale zip | Rebuild from scratch: `rm -rf dist && ./scripts/build-skill.sh claude` |
+| Fewer than 19 files listed after upload | Partial or stale zip | Re-download the zip from the latest release and re-upload it |
 | Artifacts appear in chat but don't persist anywhere | Running outside a Project with no Filesystem MCP | See [Artifact storage](#artifact-storage) |
-| Skill behaves like an older version | Stale upload | Remove the old skill, rebuild, re-upload (see below) |
+| Skill behaves like an older version | Stale upload | Remove the old skill, re-download, re-upload (see below) |
 
 ## Update or remove
 
-To pick up repo changes:
-
-```bash
-git pull
-./scripts/build-skill.sh claude
-```
-
-Then in **Customize → Skills**, remove the existing `ai-plc-discovery` and upload the new zip. Uploading without removing the old one first can leave two copies competing for the same trigger phrases.
+To update, download `ai-pds-claude-desktop.zip` from the [latest release](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest). Then in **Customize → Skills**, remove the existing `ai-plc-discovery` and upload the new zip. Uploading without removing the old one first can leave two copies competing for the same trigger phrases.
 
 To uninstall, delete `ai-plc-discovery` from **Customize → Skills**. Nothing is left behind outside the app.
 

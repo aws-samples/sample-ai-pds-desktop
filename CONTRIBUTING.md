@@ -40,6 +40,32 @@ GitHub provides additional document on [forking a repository](https://help.githu
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 
+## Building the skill locally
+
+End users install from the release zips (see the [README](README.md)). To test changes to `SKILL.md`, `rules/` or `templates/`, build the zips yourself:
+
+```bash
+git clone https://github.com/aws-samples/sample-ai-pds-desktop.git
+cd sample-ai-pds-desktop
+./scripts/build-skill.sh          # both runtimes
+./scripts/build-skill.sh quick    # Quick Desktop only (root SKILL.md)
+./scripts/build-skill.sh claude   # Claude Desktop only (claude-desktop/SKILL.md)
+```
+
+Each runtime gets its own tree, so building one never overwrites the other:
+
+```
+dist/quick/ai-plc-discovery/            staged skill
+dist/quick/ai-pds-quick-desktop.zip     import into Quick Desktop
+dist/claude/ai-plc-discovery/           staged skill
+dist/claude/ai-pds-claude-desktop.zip   upload to Claude Desktop
+```
+
+The script prints the staged file count — both runtimes should report 19 files (1 `SKILL.md` + 13 rules + 5 templates). It never modifies the repo; everything is copied into `dist/`, which is git-ignored. Needs `bash` and `zip` (both ship with macOS and Linux; on Windows use WSL or Git Bash).
+
+To test a build, import the zip in Quick Desktop (**Agents & skills → Skills → + Create**) or upload it in Claude Desktop (**Customize → Skills → Add**). Remove the previously installed copy first, so two versions don't compete for the same trigger phrases. Re-run the script after every change.
+
+
 ## Releasing
 
 Releases are automated by the [`.github/workflows/release.yml`](.github/workflows/release.yml)
