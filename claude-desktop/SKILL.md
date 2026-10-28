@@ -153,6 +153,7 @@ Each phase loads its rule file on demand (Read tool), asks the required question
 | 4. Prototype (spec → build) | `rules/discovery/prototype-context-generation.md`, then `rules/discovery/prototype-building.md` | One `04-prototypes/PROTOTYPE-{slug}.md` per use case selected in Prioritization (optionally imports from design tools) + HTML artifact OR full-stack app (via Claude Code / Kiro) |
 | 5. Product Strategy | `rules/discovery/product-strategy.md` | `05-product-strategy/strategy.md` |
 | 6. Go-to-Market | `rules/discovery/go-to-market.md` | `06-go-to-market/gtm-plan.md` |
+| Hand-off (any exit point — not numbered) | `rules/discovery/handoff.md` | `07-handoff/handoff-{project-slug}.zip` — the reviewed artifacts the user selects, unchanged |
 
 Phase 1 opens with an optional Discovery Research step. MANDATORY: ALWAYS offer it when Envision begins; never skip the offer and never decide on the user's behalf that it is unnecessary — declining is the user's call. On Claude Desktop, use web search (if available via MCP) to run the three research pillars, or ask the user to paste findings manually. Only Entry Point 1 runs Envision, so Entry Points 2 and 3 are not offered research.
 
@@ -241,19 +242,17 @@ State is maintained up to THREE ways on Claude Desktop:
 
 ## Discovery Complete
 
-MANDATORY: Whenever the user stops — at ANY exit point, not just after Go-to-Market — run the hand-off step before closing out. Someone who stops after a prototype spec needs it more than someone who finished everything, because less of the thinking has been written down.
+MANDATORY: Whenever the user stops — at ANY exit point, not just after Go-to-Market — run the Hand-off step before closing out.
 
-1. **Load `rules/discovery/handoff.md` and build the hand-off package.** Write `vision.md` and bundle it into `07-handoff/handoff-{slug}.zip` straight away, without asking first.
+1. Run the **Hand-off** step (see Workflow Phases)
 2. Generate the final audit trail summary
 3. Tell the user where every artifact lives — the project knowledge entries, or the file paths under `aiplc-docs/` — so they can share them. On Claude Desktop there is no Slack or email push unless a matching MCP server is configured; if one is, offer it.
 4. Offer next steps guidance:
 
-- `07-handoff/handoff-{slug}.zip` → follow `START-HERE.md` inside it: unzip in the project root (every file lands in the root), then give a coding agent the starter prompt it contains — `Read ./vision.md and build what it describes`, with `./strategy.md`, `./gtm-plan.md`, `./prfaq.md`, and `./pain-point-analysis-summary.md` as supporting context
+- `07-handoff/handoff-{project-slug}.zip` → share with the delivery team
 - PROTOTYPE-*.md files → can be handed to Claude Code or Kiro for full-stack builds
 - Strategy + GTM docs → ready for exec review
 - Scoring artifacts → ready for investment decisions
-
-The hand-off step is not a numbered phase and does not change the progress count — it is the closing step of whichever phase the user stopped in.
 
 ---
 

@@ -23,7 +23,7 @@ Guides Product Managers and business leaders through the AI-PLC Discovery workfl
 
 **Three entry points:** Start from pain points, use cases, or existing prototype specs.  
 **Every stage is an exit point:** Stop whenever you have what you need.  
-**Hand-off at any exit:** Whenever you stop, AI-PLC turns what you have into a `vision.md` and packages it with the strategy, GTM plan, PR/FAQ, and a pain-point analysis summary as a zip ready to unzip into the delivery team's project. Delivery teams receiving a hand-off: see [`docs/aidlc-handoff-guide.md`](docs/aidlc-handoff-guide.md).
+**Hand-off at any exit:** Whenever you stop, pick which of your reviewed artifacts to send and AI-PLC zips them, unchanged, for the delivery team.
 
 ---
 
@@ -83,8 +83,6 @@ sample-ai-pds-desktop/
 ├── CONTRIBUTING.md
 ├── CODE_OF_CONDUCT.md
 ├── LICENSE
-├── docs/
-│   └── aidlc-handoff-guide.md            ← For delivery teams: starting from an AI-PLC hand-off
 ├── claude-desktop/
 │   ├── SKILL.md                          ← Claude Desktop orchestrator (with YAML frontmatter)
 │   └── README.md                         ← Claude Desktop setup guide
@@ -105,7 +103,7 @@ sample-ai-pds-desktop/
 │       ├── prototype-building.md         ← HTML prototype creation
 │       ├── product-strategy.md           ← Strategy development
 │       ├── go-to-market.md              ← GTM planning
-│       └── handoff.md                    ← Hand-off: vision.md + zip
+│       └── handoff.md                    ← Hand-off: select artifacts → zip
 └── templates/
     ├── prfaq-template.md                ← Working Backwards PR/FAQ
     ├── use-case-card.md                 ← Use case documentation format

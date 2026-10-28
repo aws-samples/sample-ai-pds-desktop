@@ -30,11 +30,10 @@ All notable changes to the AI-PDS Desktop Assistants implementation.
 
 ### New: Hand-off step
 
-- New rule file `rules/discovery/handoff.md`, offered whenever the user stops — at **any** exit point, not only after Go-to-Market. Someone who stops after a prototype spec needs a hand-off more than someone who finished everything, because less of the thinking has been written down.
-- Produces the **vision document** → `07-handoff/vision.md` — vision statement, core answers (business problem, customer and pain, success metrics, why now, product boundary), solution direction, constraints, risks, decisions already made, open questions, and a source-artifact index — and bundles it into `07-handoff/handoff-{slug}.zip` straight away, without asking first.
-- The zip is flat — `vision.md`, `START-HERE.md`, `strategy.md`, `gtm-plan.md`, `prfaq.md`, and a generated `pain-point-analysis-summary.md` at its root — and `START-HERE.md` carries the unzip steps and a filled-in starter prompt, so whoever receives it can start without the chat transcript. Where the runtime can't create a zip, the same files are written to a folder and the user is told it still needs zipping.
-- Guardrails against invention: no estimates, story points, sprint assignments, dates, or stakeholders; no acceptance criteria for behaviour never discussed (those become open questions). Every claim cites its source artifact, and inferences are marked `(assumed)`.
-- New `07-handoff/` folder in the output structure. New `docs/aidlc-handoff-guide.md` for delivery teams receiving a hand-off.
+- New rule file `rules/discovery/handoff.md`, run whenever the user stops — at **any** exit point, not only after Go-to-Market.
+- Lists every artifact saved in `01-envision/` through `06-go-to-market/` and suggests a default (PR/FAQ, prototype specs, strategy, GTM plan). The user picks the files, and they are zipped unchanged and flat into `07-handoff/handoff-{project-slug}.zip`. Where the runtime can't create a zip, the same files are copied to a folder and the user is told it still needs zipping.
+- No files are generated for the package — only artifacts the user has already reviewed go in. `aiplc-state.md` and `audit.md` are never included.
+- New `07-handoff/` folder in the output structure.
 - Claude Desktop had no *Discovery Complete* section at all — one was added, with Claude-appropriate distribution guidance.
 
 ### New: Progress indicator

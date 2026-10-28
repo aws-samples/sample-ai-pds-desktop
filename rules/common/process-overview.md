@@ -78,7 +78,7 @@ aiplc-docs/
 │   └── strategy.md
 ├── 06-go-to-market/
 │   └── gtm-plan.md
-├── 07-handoff/                     ← vision.md + handoff-{slug}.zip
+├── 07-handoff/                     ← handoff-{project-slug}.zip (selected artifacts, flat)
 ├── aiplc-state.md
 └── audit.md
 ```

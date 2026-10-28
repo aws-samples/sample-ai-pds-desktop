@@ -219,7 +219,13 @@ Stopping after Step 1 is a valid exit — the spec is a complete deliverable on 
 
 ### PHASE 6: Go-to-Market
 
-**Load:** `rules/discovery/go-to-market.md`**Entry:** After Product Strategy**Exit artifact:** `06-go-to-market/gtm-plan.md`**Next:** Discovery Complete
+**Load:** `rules/discovery/go-to-market.md`**Entry:** After Product Strategy**Exit artifact:** `06-go-to-market/gtm-plan.md`**Next:** Hand-off
+
+### HAND-OFF (any exit point)
+
+**Load:** `rules/discovery/handoff.md`**Entry:** The user stops at any phase, OR Go-to-Market completes, OR the user asks how to give this to their team**Exit artifact:** `07-handoff/handoff-{project-slug}.zip`**Next:** Discovery Complete
+
+Not a numbered phase — the progress indicator stays on the phase the user stopped in.
 
 ---
 
@@ -358,9 +364,9 @@ These capabilities are UNIQUE to the Quick Desktop implementation:
 
 ## Discovery Complete
 
-MANDATORY: Whenever the user stops — at ANY exit point, not just after Go-to-Market — run the hand-off step before closing out. Someone who stops after a prototype spec needs it more than someone who finished everything, because less of the thinking has been written down.
+MANDATORY: Whenever the user stops — at ANY exit point, not just after Go-to-Market — run the Hand-off step before closing out.
 
-1. **Load `rules/discovery/handoff.md` and build the hand-off package.** Write `vision.md` and bundle it into `07-handoff/handoff-{slug}.zip` straight away, without asking first.
+1. Run the **Hand-off** step (see Workflow Phases)
 2. Generate the final audit trail summary
 3. Present distribution options:
 
@@ -373,12 +379,10 @@ MANDATORY: Whenever the user stops — at ANY exit point, not just after Go-to-M
 
 4. Offer next steps guidance:
 
-- `07-handoff/handoff-{slug}.zip` → follow `START-HERE.md` inside it: unzip in the project root (every file lands in the root), then give a coding agent the starter prompt it contains — `Read ./vision.md and build what it describes`, with `./strategy.md`, `./gtm-plan.md`, `./prfaq.md`, and `./pain-point-analysis-summary.md` as supporting context
+- `07-handoff/handoff-{project-slug}.zip` → share with the delivery team
 - PROTOTYPE-*.md files → can be used in Kiro or Claude Code for full-stack builds
 - Strategy + GTM docs → ready for exec review
 - Scoring artifacts → ready for investment decisions
-
-The hand-off step is not a numbered phase and does not change the progress count — it is the closing step of whichever phase the user stopped in.
 
 ---
 
