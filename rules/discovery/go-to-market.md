@@ -164,17 +164,17 @@ After GTM approval:
 🎉 **AI-PLC Discovery is Complete!**
 
 Here's what we've produced:
-- ✅ Pain Points & PR/FAQ (01-envision/)
-- ✅ Use Case Repository (02-use-case-intake/)
-- ✅ Prioritized Backlog (03-prioritization/)
-- ✅ Prototype Specs (04-prototypes/)
-- ✅ Product Strategy (05-product-strategy/)
-- ✅ Go-to-Market Plan (06-go-to-market/)
+- Pain Points & PR/FAQ (01-envision/)
+- Use Case Repository (02-use-case-intake/)
+- Prioritized Backlog (03-prioritization/)
+- Prototype Specs (04-prototypes/)
+- Product Strategy (05-product-strategy/)
+- Go-to-Market Plan (06-go-to-market/)
 
-All artifacts are saved and ready for the next phase of development.
+Next, you'll choose which of these go into the hand-off package for your delivery team.
 ```
 
-Generate final audit summary and present distribution options (from SKILL.md).
+Then run the Hand-off step (`rules/discovery/handoff.md`). After the hand-off package is built, generate the final audit summary and present distribution options (from SKILL.md).
 
 ---
 

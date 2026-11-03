@@ -31,7 +31,7 @@ All notable changes to the AI-PDS Desktop Assistants implementation.
 ### New: Hand-off step
 
 - New rule file `rules/discovery/handoff.md`, run whenever the user stops — at **any** exit point, not only after Go-to-Market.
-- Lists every artifact saved in `01-envision/` through `06-go-to-market/` and suggests a default (PR/FAQ, prototype specs, strategy, GTM plan). The user picks the files, and they are zipped unchanged and flat into `07-handoff/handoff-{project-slug}.zip`. Where the runtime can't create a zip, the same files are copied to a folder and the user is told it still needs zipping.
+- Lists every artifact saved in `01-envision/` through `06-go-to-market/` and suggests a default (PR/FAQ, prototype specs, strategy, GTM plan). The user picks the files — accepting the list means the suggested files only, never everything — and confirms the final list. Exactly those files are zipped unchanged and flat into `07-handoff/handoff-{project-slug}.zip`, file by file, and the zip's actual contents are checked against the confirmed list before it is presented. Where the runtime can't create a zip, the same files are copied to a folder and the user is told it still needs zipping.
 - No files are generated for the package — only artifacts the user has already reviewed go in. `aiplc-state.md` and `audit.md` are never included.
 - New `07-handoff/` folder in the output structure.
 - Claude Desktop had no *Discovery Complete* section at all — one was added, with Claude-appropriate distribution guidance.

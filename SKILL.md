@@ -370,7 +370,7 @@ MANDATORY: Whenever the user stops — at ANY exit point, not just after Go-to-M
 2. Generate the final audit trail summary
 3. Present distribution options:
 
-<decision question="How would you like to distribute the final artifacts?">
+<decision question="How would you like to distribute the hand-off package?">
 <option description="Post to a Slack channel for the team">Share via Slack</option>
 <option description="Email them to specific stakeholders">Send via email</option>
 <option description="Save to OneDrive for team access">Save to OneDrive</option>
