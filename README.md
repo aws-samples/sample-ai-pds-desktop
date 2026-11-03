@@ -1,16 +1,10 @@
-# AI-Driven Product Discovery and Strategy ( AI-PDS) 
-## AI-driven product life cycle (AIPLC )implementation in AI Desktop Assistants ## 
+# AI-Driven Product Discovery and Strategy (AI-PDS)
 
-AI-PDS (AI-Driven Product Discovery and Strategy) is a capabilities-first framework that helps non-technical business leaders — PMs, VPs of Product, CTOs exploring adjacencies — discover, prioritize, and prototype AI use cases before committing engineering resources. Multiple implemenations of the AI-PDS exists for AI driven Product Life Cycle e.g. Agentic IDE, Amazon Quick, Quick Desktop etc,along with prototype creation. 
+AI-PDS is a capabilities-first framework that helps non-technical business leaders — PMs, VPs of Product, CTOs exploring adjacencies — discover, prioritize, and prototype AI use cases before committing engineering resources.
 
-AI Product Discovery and Strategy (AI-PDS) is a structured approach where AI orchestrates every phase from customer discovery to market launch.
+AI orchestrates every phase from customer discovery to market launch. Humans retain decision authority at each gate, ensuring alignment with business goals.
 
-Humans retain decision authority at each gate, ensuring alignment with business goals.
-
-This repo provides the Desktop Assistants implementation. For Agentic IDEs implementations please refer to 
-AI-PDS - Agentic IDE implementations of AI-PLC [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
-
-<img width="663" height="356" alt="image" src="https://github.com/user-attachments/assets/41d921db-1239-4450-a508-8260d9fefea4" />
+This repo provides the **Desktop Assistants** implementation. For Agentic IDE implementations, see [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc).
 
 ## What This Skill Does
 
@@ -18,15 +12,18 @@ Guides Product Managers and business leaders through the AI-PLC Discovery workfl
 
 | Capability | What happens | You get |
 |---|---|---|
-| Envision | Pain point analysis + PR/FAQ (Working Backwards) | PR/FAQ document |
+| Envision | Optional discovery research (market signals, competitive landscape, user needs), then pain point analysis + PR/FAQ (Working Backwards), then solution analysis — single vs. multiple solution paths | PR/FAQ document + solution direction (+ research summary) |
 | Use Case Intake | Document & categorize N use cases | Use Case Repository |
 | Prioritize | Dual scoring (Agentic vs Application) | Ranked Backlog |
 | Prototype | Generate specs + optional HTML prototype | PROTOTYPE-*.md files |
 | Product Strategy | Positioning, business model, KPIs | Strategy Document |
 | Go-to-Market | Segmentation, sales motions, launch | GTM Plan |
 
+**Six phases.** Two phases bundle several steps: Envision opens with optional Discovery Research, then covers the PR/FAQ and the solution analysis that branches the workflow, and Prototype covers spec generation and the build with a decision gate between them — stopping after the spec is a valid exit.
+
 **Three entry points:** Start from pain points, use cases, or existing prototype specs.  
-**Every stage is an exit point:** Stop whenever you have what you need.
+**Every stage is an exit point:** Stop whenever you have what you need.  
+**Hand-off at any exit:** Whenever you stop, pick which of your reviewed artifacts to send and AI-PLC zips them, unchanged, for the delivery team.
 
 ---
 
@@ -36,61 +33,51 @@ This repo currently supports:
 
 | Implementation | Setup |
 |---|---|
-| **Amazon Quick Desktop** | Default. See instructions below |
-| **Claude Desktop** | See [`claude-desktop/README.md`](claude-desktop/README.md) for setup instructions. |
+| **Amazon Quick Desktop** | Download `ai-pds-quick-desktop.zip` — see below |
+| **Claude Desktop** | Download `ai-pds-claude-desktop.zip` — see [`claude-desktop/README.md`](claude-desktop/README.md) |
 
 More desktop assistants coming soon — stay tuned.
 
 ---
 
-## Install
+## Get Started with Quick Desktop
 
-The fastest way to install is from a pre-built package on the
-[**Releases**](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest)
-page. Each release ships two ready-to-import zips — no cloning or file editing needed:
+1. Download `ai-pds-quick-desktop.zip` from the [latest release](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) — don't unzip it
+2. Open **Agents & skills** from the left sidebar
+3. Click the **Skills** tab
+4. Click **+ Create** and import the zip
+5. In any conversation, say: **"Start AI-PLC"**
+6. Follow the guided workflow
 
-| Package | For |
-|---|---|
-| `ai-pds-quick-desktop.zip` | Amazon Quick Desktop |
-| `ai-pds-claude-desktop.zip` | Claude Desktop |
+**To update:** download the zip from the latest release, remove the existing skill, and import the new zip.
 
-### Quick Desktop (from zip)
+Want to change the skill itself? See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-1. Download `ai-pds-quick-desktop.zip` from the [Releases](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) page and unzip it
-2. Open **Agents & skills** from the left sidebar → **Skills** tab
-3. Click **+ Create** → **Import from file**
-4. Select the unzipped folder
-5. In any conversation, say **"Start AI-PLC"** and follow the guided workflow
-
-### Claude Desktop (from zip)
-
-1. Download `ai-pds-claude-desktop.zip` from the [Releases](https://github.com/aws-samples/sample-ai-pds-desktop/releases/latest) page and unzip it
-2. Load the unzipped folder as a skill via **Settings → Capabilities/Skills** (or zip and upload it, per your Claude Desktop version)
-3. Start a chat and say **"Start AI-PLC"**
-
-See [`claude-desktop/README.md`](claude-desktop/README.md) for MCP-server options and details on how the Claude Desktop version differs.
-
-### Install from source (manual)
-
-Prefer to work from a clone? You can still install directly from the repo:
-
-- **Quick Desktop:** clone the repo, delete the `claude-desktop/` folder, then import the folder as in the steps above.
-- **Claude Desktop:** clone the repo, copy `claude-desktop/SKILL.md` over the root `SKILL.md`, then load the root folder. See [`claude-desktop/README.md`](claude-desktop/README.md).
+For Claude Desktop setup, see [`claude-desktop/README.md`](claude-desktop/README.md).
 
 ---
 
 ## File Structure
 
 ```
-ai-plc-skill/
-├── SKILL.md                              ← Orchestrator (main entry point)
+sample-ai-pds-desktop/
+├── SKILL.md                              ← Quick Desktop orchestrator (main entry point)
 ├── README.md                             ← This file
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── LICENSE
+├── claude-desktop/
+│   ├── SKILL.md                          ← Claude Desktop orchestrator (with YAML frontmatter)
+│   └── README.md                         ← Claude Desktop setup guide
+├── scripts/
+│   └── build-skill.sh                    ← Assembles dist/<runtime>/ai-plc-discovery/
 ├── rules/
 │   ├── common/
 │   │   ├── process-overview.md           ← Capability model & principles
 │   │   ├── session-continuity.md         ← State management & resumption
 │   │   └── question-format-guide.md      ← Decision card formatting rules
 │   └── discovery/
+│       ├── research.md                   ← Optional research step, run from Envision
 │       ├── envision.md                   ← Pain points + PR/FAQ
 │       ├── solution-analysis.md          ← Single vs. multiple solutions
 │       ├── use-case-intake.md            ← Structured use case documentation
@@ -98,7 +85,8 @@ ai-plc-skill/
 │       ├── prototype-context-generation.md ← Spec file generation
 │       ├── prototype-building.md         ← HTML prototype creation
 │       ├── product-strategy.md           ← Strategy development
-│       └── go-to-market.md              ← GTM planning
+│       ├── go-to-market.md              ← GTM planning
+│       └── handoff.md                    ← Hand-off: select artifacts → zip
 └── templates/
     ├── prfaq-template.md                ← Working Backwards PR/FAQ
     ├── use-case-card.md                 ← Use case documentation format
@@ -133,9 +121,7 @@ For facilitated workshops:
 
 ## Source
 
-- Framework: AI-PDS (AI Product Discovery & Strategy)
--  AI-PDS - Agentic IDE implementations of AI-PLC
-   [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
+- Agentic IDE implementation: [aws-samples/sample-ai-plc](https://github.com/aws-samples/sample-ai-plc)
 - Related Blog: [Henry Schein One goes AI-native with AI-PDS](https://aws.amazon.com/blogs/industries/henry-schein-one-goes-ai-native-with-ai-product-discovery-and-strategy/)
 
 
@@ -147,4 +133,4 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 This library is licensed under the MIT-0 License. See the LICENSE file.
 
-*Version 1.0 | 2026-07-21*
+*Version 1.1 | 2026-09-11*

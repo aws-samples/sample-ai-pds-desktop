@@ -4,7 +4,7 @@
 Build interactive HTML prototypes from PROTOTYPE-*.md specifications. Quick Desktop generates HTML-only prototypes that render inline — no dev setup, no localhost, no package management required.
 
 ## Entry Conditions
-- PROTOTYPE-*.md specs exist (from Spec Generation or Entry Point 3)
+- PROTOTYPE-*.md specs exist (from Prototype Step 1 — Spec, or Entry Point 3)
 - User chose to build prototypes in Quick
 
 ## Exit Artifacts

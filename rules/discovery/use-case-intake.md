@@ -170,7 +170,7 @@ Also offer Excel export:
 
 ## Transition to Next Phase
 
-"All {N} use cases are documented and classified. Next, we'll score and prioritize them to select the top 3 for prototyping."
+"All {N} use cases are documented and classified. Next, we'll score and prioritize them so you can choose which ones to prototype."
 
 → Load `rules/discovery/use-case-prioritization.md`
 

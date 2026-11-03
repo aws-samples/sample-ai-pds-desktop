@@ -4,7 +4,7 @@
 For each selected use case, gather the design and technical context needed to generate a self-contained PROTOTYPE-*.md specification file. These specs are PORTABLE — they work identically in Quick Desktop, Kiro, and Claude Code.
 
 ## Entry Conditions
-- Top use cases selected from Prioritization (typically 3)
+- The use case(s) the user selected in Prioritization Step 5
 - OR single solution from Solution Analysis
 
 ## Exit Artifacts

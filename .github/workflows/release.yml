@@ -1,7 +1,7 @@
 name: Release
 
 # Build ready-to-import skill packages and publish them as a GitHub Release
-# whenever a version tag (e.g. v1.1, v2.0.0) is pushed.
+# whenever a version tag (e.g. v1.1, v1.1.1) is pushed.
 on:
   push:
     tags:
@@ -17,29 +17,20 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Build Quick Desktop package
-        # Everything except the claude-desktop/ folder — matches the README's
-        # "download and delete the claude-desktop folder" instructions.
+      - name: Build skill packages
+        # Same script users run locally — stages and zips dist/claude/ and
+        # dist/quick/, each holding exactly one SKILL.md plus the shared
+        # rules/ and templates/.
         run: |
           set -euo pipefail
-          pkg="ai-pds-quick-desktop"
-          mkdir -p "dist/$pkg"
-          cp SKILL.md README.md LICENSE "dist/$pkg/"
-          cp -R rules templates "dist/$pkg/"
-          (cd dist && zip -rq "$pkg.zip" "$pkg")
+          ./scripts/build-skill.sh both
 
-      - name: Build Claude Desktop package
-        # Promote claude-desktop/SKILL.md to the root SKILL.md and ship the
-        # shared rules/ and templates/ — matches claude-desktop/README.md.
+      - name: Name release assets
+        # Both zips contain a single top-level ai-plc-discovery/ folder.
         run: |
           set -euo pipefail
-          pkg="ai-pds-claude-desktop"
-          mkdir -p "dist/$pkg"
-          cp claude-desktop/SKILL.md "dist/$pkg/SKILL.md"
-          cp claude-desktop/README.md "dist/$pkg/README.md"
-          cp LICENSE "dist/$pkg/"
-          cp -R rules templates "dist/$pkg/"
-          (cd dist && zip -rq "$pkg.zip" "$pkg")
+          mv dist/claude/ai-pds-claude-desktop.zip dist/
+          mv dist/quick/ai-pds-quick-desktop.zip dist/
 
       - name: Publish release
         uses: softprops/action-gh-release@v2

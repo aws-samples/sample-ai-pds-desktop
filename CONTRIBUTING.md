@@ -40,35 +40,68 @@ GitHub provides additional document on [forking a repository](https://help.githu
 [creating a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 
+## Building the skill locally
+
+End users install from the release zips (see the [README](README.md)). To test changes to `SKILL.md`, `rules/` or `templates/`, build the zips yourself:
+
+```bash
+git clone https://github.com/aws-samples/sample-ai-pds-desktop.git
+cd sample-ai-pds-desktop
+./scripts/build-skill.sh          # both runtimes
+./scripts/build-skill.sh quick    # Quick Desktop only (root SKILL.md)
+./scripts/build-skill.sh claude   # Claude Desktop only (claude-desktop/SKILL.md)
+```
+
+Each runtime gets its own tree, so building one never overwrites the other:
+
+```
+dist/quick/ai-plc-discovery/            staged skill
+dist/quick/ai-pds-quick-desktop.zip     import into Quick Desktop
+dist/claude/ai-plc-discovery/           staged skill
+dist/claude/ai-pds-claude-desktop.zip   upload to Claude Desktop
+```
+
+The script prints the staged file count — both runtimes should report 19 files (1 `SKILL.md` + 13 rules + 5 templates). It never modifies the repo; everything is copied into `dist/`, which is git-ignored. Needs `bash` and `zip` (both ship with macOS and Linux; on Windows use WSL or Git Bash).
+
+To test a build, import the zip in Quick Desktop (**Agents & skills → Skills → + Create**) or upload it in Claude Desktop (**Customize → Skills → Add**). Remove the previously installed copy first, so two versions don't compete for the same trigger phrases. Re-run the script after every change.
+
+
 ## Releasing
 
 Releases are automated by the [`.github/workflows/release.yml`](.github/workflows/release.yml)
-GitHub Actions workflow. Pushing a version tag builds two ready-to-import skill
-packages and publishes them as a GitHub Release with the zips attached:
+GitHub Actions workflow. Pushing a version tag runs [`scripts/build-skill.sh`](scripts/build-skill.sh)
+and publishes a GitHub Release with two ready-to-import zips attached:
 
-* `ai-pds-quick-desktop.zip` — default layout, with the `claude-desktop/` folder excluded
-* `ai-pds-claude-desktop.zip` — `claude-desktop/SKILL.md` promoted to the root `SKILL.md`
+* `ai-pds-quick-desktop.zip` — Quick Desktop skill (root `SKILL.md` + `rules/` + `templates/`)
+* `ai-pds-claude-desktop.zip` — Claude Desktop skill (`claude-desktop/SKILL.md` + `rules/` + `templates/`)
+
+Each zip contains a single `ai-plc-discovery/` folder — the same output as running the build script locally.
 
 To cut a new release:
 
 1. Make sure `main` is up to date and contains the changes you want to ship.
-2. Create a version tag (use a `v` prefix — the workflow triggers on `v*`):
+2. Check the build locally — both runtimes should report 19 files:
    ```bash
-   git tag v1.1
+   ./scripts/build-skill.sh
    ```
-3. Push the tag:
+3. Add an entry for the version to [`CHANGELOG.md`](CHANGELOG.md).
+4. Create a version tag (use a `v` prefix — the workflow triggers on `v*`):
    ```bash
-   git push origin v1.1
+   git tag v1.1.0
    ```
-4. Watch the run under the repository's **Actions** tab. When it succeeds, the
+5. Push the tag:
+   ```bash
+   git push origin v1.1.0
+   ```
+6. Watch the run under the repository's **Actions** tab. When it succeeds, the
    new release and its zips appear on the **Releases** page.
 
 Notes:
-* The workflow triggers on the tag itself, not on a branch, so tag a commit that already includes `.github/workflows/release.yml`.
+* The workflow triggers on the tag itself, not on a branch, so tag a commit that already includes `.github/workflows/release.yml` and `scripts/build-skill.sh`.
 * To redo a release, delete the tag locally and remotely, delete the release entry in the GitHub UI, then re-tag and push:
    ```bash
-   git push origin :refs/tags/v1.1   # delete remote tag
-   git tag -d v1.1                    # delete local tag
+   git push origin :refs/tags/v1.1.0   # delete remote tag
+   git tag -d v1.1.0                    # delete local tag
    ```
 * Forks have GitHub Actions disabled by default — enable them under the fork's **Actions** tab before pushing a tag.
 
